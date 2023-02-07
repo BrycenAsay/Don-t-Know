@@ -1,0 +1,7 @@
+   sql = """CREATE TABLE TWITTER_DATA(
+      tweet_id INT,
+      body TEXT,
+      likes INT,
+      views INT,
+      created_on DATETIME
+   );"""
