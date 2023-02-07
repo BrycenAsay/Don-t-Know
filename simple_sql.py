@@ -9,7 +9,7 @@ def create_table(table_name, columns, data_types):
 def create_row(table_name, columns, data):
     columns = ','.join(columns)
     data = ','.join(data)
-    query = f'INSERT INTO {table_name}({columns}) VALUES ({data})'
+    query = f'INSERT INTO {table_name}({columns}) VALUES ({data});'
     return query
 
 colms = ['tweet_id', 'body', 'likes', 'views', 'created_on']
