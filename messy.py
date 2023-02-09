@@ -37,8 +37,8 @@ def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
         view_count = data['data'][0]['public_metrics']['impression_count']
         individual_text = data['data'][0]['text']
         text.append(individual_text)
-        likes.append(like_count)
-        views.append(view_count)
+        likes.append(int(like_count))
+        views.append(int(view_count))
 
     for TWEET_ID in list_of_tweet_ids:
         url = API_CALLS(USERNAME, USER_ID, TWEET_ID).get_tweets_create_date()
@@ -49,12 +49,6 @@ def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
 
     for i in range(len(list_of_tweet_ids)):
         list_of_tweet_ids[i] = int(list_of_tweet_ids[i])
-
-    for i in range(len(likes)):
-        likes[i] = int(likes[i])
-
-    for i in range(len(views)):
-        views[i] = int(views[i])
 
     tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'likes':likes, 'views':views, 'created_on':dates}
     return tweets_info
