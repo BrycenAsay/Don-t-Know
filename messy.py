@@ -1,72 +1,38 @@
 import requests
 import pandas as pd
 from IPython.display import display
-
+from API_Calls import API_CALLS, HEADERS, PAYLOAD
+# starter variables in order for functions to work
+USERNAME = 'Jack'
 # write functions
 
-def get_user_id(username, bear_token):
-    url = "https://api.twitter.com/2/users/by/username/" + username
-
-    payload={}
-
-    # make it easier to change token for current user
-    # error logic for recieving a response (response status code 429)
-    # run multiple instances
-
-    headers = {
-    'Authorization': 'Bearer ' + bear_token,
-    'Cookie': 'guest_id=v1%3A167354671801418520; guest_id_ads=v1%3A167354671801418520; guest_id_marketing=v1%3A167354671801418520; personalization_id="v1_Yg76iBwLIOAcAZZ145rAAA=="'
-    }
-
+def get_user_id(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=USERNAME).get_user_id()):
     response = requests.request("GET", url, headers=headers, data=payload)
     data = response.json()
-
     user_id = data['data']['id']
     return user_id
 
-def get_tweets(user_id, last_date, bear_token):
+USER_ID = get_user_id()
 
-    if last_date == []:
-        start_filter = ''
-    else:
-        last_tweet = last_date
-        start_filter = f'&end_time={last_tweet}'
-    url = f"https://api.twitter.com/2/users/" + user_id + "/tweets?tweet.fields=created_at&max_results=69" + '&start_time=2010-11-09T19:08:47.000Z' + start_filter
-
-    payload={}
-    headers = {
-    'Authorization': 'Bearer ' + bear_token,
-    'Cookie': 'guest_id=v1%3A167354671801418520; guest_id_ads=v1%3A167354671801418520; guest_id_marketing=v1%3A167354671801418520; personalization_id="v1_Yg76iBwLIOAcAZZ145rAAA=="'
-}
-
+def get_tweets(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=USERNAME, user_id=USER_ID).get_tweets()):
     response = requests.request("GET", url, headers=headers, data=payload)
     data = response.json()
     print(data)
     list_of_tweets = data['data']
     return list_of_tweets
 
-def get_tweet_info(list_of_tweets, bear_token):
+def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
     list_of_tweet_ids = []
     for tweet in list_of_tweets:
         list_of_tweet_ids.append(tweet['id'])
-
     views = []
     likes = []
     text = []
     dates = []
-    for tweet_id in list_of_tweet_ids:
-
-        url = "https://api.twitter.com/2/tweets?ids=" + tweet_id + "&tweet.fields=public_metrics&expansions=attachments.media_keys&media.fields=public_metrics"
-
-        payload={}
-        headers = {
-        'Authorization': 'Bearer ' + bear_token,
-        'Cookie': 'guest_id=v1%3A167354671801418520; guest_id_ads=v1%3A167354671801418520; guest_id_marketing=v1%3A167354671801418520; personalization_id="v1_Yg76iBwLIOAcAZZ145rAAA=="'
-        }
-
+    for TWEET_ID in list_of_tweet_ids:
+        url = API_CALLS(USERNAME, USER_ID, TWEET_ID).get_tweets_txt_likes_views()
         response = requests.request("GET", url, headers=headers, data=payload)
         data = response.json()
-        print(data)
         like_count = data['data'][0]['public_metrics']['like_count']
         view_count = data['data'][0]['public_metrics']['impression_count']
         individual_text = data['data'][0]['text']
@@ -74,17 +40,9 @@ def get_tweet_info(list_of_tweets, bear_token):
         likes.append(like_count)
         views.append(view_count)
 
-    for tweet_id in list_of_tweet_ids:
-        url = "https://api.twitter.com/2/tweets?ids=" + tweet_id + "&tweet.fields=attachments,author_id,context_annotations,created_at,entities,geo,id,in_reply_to_user_id,lang,possibly_sensitive,public_metrics,referenced_tweets,source,text,withheld&expansions=referenced_tweets.id"
-
-        payload={}
-        headers = {
-        'Authorization': 'Bearer ' + bear_token,
-        'Cookie': 'guest_id=v1%3A167354671801418520; guest_id_ads=v1%3A167354671801418520; guest_id_marketing=v1%3A167354671801418520; personalization_id="v1_Yg76iBwLIOAcAZZ145rAAA=="'
-        }
-
+    for TWEET_ID in list_of_tweet_ids:
+        url = API_CALLS(USERNAME, USER_ID, TWEET_ID).get_tweets_create_date()
         response = requests.request("GET", url, headers=headers, data=payload)
-
         data = response.json()
         create_dates = data['data'][0]['created_at']
         dates.append(create_dates)
