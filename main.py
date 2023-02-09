@@ -1,102 +1,59 @@
-import requests
-import pandas as pd
-from IPython.display import display
+import pymysql
+import logging
+import time
+from messy import get_tweet_info, get_tweets, get_user_id
+from config import BEARER_TOKEN as auth
+logging.basicConfig(level=logging.DEBUG)
+import simple_sql
 
-# write functions
+def format_dates(date):
+   year = date[0:10]
+   time = date[11:19]
+   return f'{year} {time}'
 
-def get_user_id(username, bear_token):
-    url = "https://api.twitter.com/2/users/by/username/" + username
+last_tweet_access_method = ['2022-12-18T19:08:47.000Z'] 
 
-    payload={}
+if __name__ == '__main__':
+   for i in range(0,3):
+      if last_tweet_access_method != []:
+         access_last_tweet = last_tweet_access_method[-1]
+      else:
+         access_last_tweet = []
+      sample_info = get_tweet_info(get_tweets(get_user_id('Jack', auth), access_last_tweet, auth), auth)
+      last_tweet_access_method.append(sample_info['created_on'][-1])
+      sql_info_to_upload = []
+      colms = ['tweet_id','body','likes','views','created_on'] 
+      for i in range(len(sample_info['tweet_id'])):
+         DATA = []
+         # the id of the tweet
+         DATA.append(str(sample_info['tweet_id'][i]))
+         # the main text of the data
+         text = sample_info['text'][i]
+         DATA.append(f'"{text}"')
+         # the like count
+         DATA.append(str(sample_info['likes'][i]))
+         # the view/impression count
+         DATA.append(str(sample_info['views'][i]))
+         # the date the post was created
+         date = format_dates(sample_info['created_on'][i])
+         DATA.append(f'"{date}"')
+         sql_info_to_upload.append(simple_sql.create_row('twitter_info.twitter_data', colms, DATA))
+         print(sql_info_to_upload)
+      conn = pymysql.connect(host='twitter-info-database.cdqr0hsklsgu.us-west-1.rds.amazonaws.com',
+      user='admin',password='U8tIZayYVeCPXtKsJaAJ',database='twitter_info')
+      with conn.cursor() as cursor: 
+         for queries in sql_info_to_upload:
+            try:
+               # Executing the SQL command
+               cursor.execute(queries)
 
-    # make it easier to change token for current user
-    # error logic for recieving a response (response status code 429)
-    # run multiple instances
+               # Commit your changes in the database
+               conn.commit()
 
-    headers = {
-    'Authorization': 'Bearer ' + bear_token,
-    'Cookie': 'guest_id=v1%3A167354671801418520; guest_id_ads=v1%3A167354671801418520; guest_id_marketing=v1%3A167354671801418520; personalization_id="v1_Yg76iBwLIOAcAZZ145rAAA=="'
-    }
-
-    response = requests.request("GET", url, headers=headers, data=payload)
-    data = response.json()
-
-    user_id = data['data']['id']
-    return user_id
-
-def get_tweets(user_id, last_date, bear_token):
-
-    if last_date == []:
-        start_filter = ''
-    else:
-        last_tweet = last_date
-        start_filter = f'&end_time={last_tweet}'
-    url = f"https://api.twitter.com/2/users/" + user_id + "/tweets?tweet.fields=created_at&max_results=69" + '&start_time=2010-11-09T19:08:47.000Z' + start_filter
-
-    payload={}
-    headers = {
-    'Authorization': 'Bearer ' + bear_token,
-    'Cookie': 'guest_id=v1%3A167354671801418520; guest_id_ads=v1%3A167354671801418520; guest_id_marketing=v1%3A167354671801418520; personalization_id="v1_Yg76iBwLIOAcAZZ145rAAA=="'
-}
-
-    response = requests.request("GET", url, headers=headers, data=payload)
-    data = response.json()
-    print(data)
-    list_of_tweets = data['data']
-    return list_of_tweets
-
-def get_tweet_info(list_of_tweets, bear_token):
-    list_of_tweet_ids = []
-    for tweet in list_of_tweets:
-        list_of_tweet_ids.append(tweet['id'])
-
-    views = []
-    likes = []
-    text = []
-    dates = []
-    for tweet_id in list_of_tweet_ids:
-
-        url = "https://api.twitter.com/2/tweets?ids=" + tweet_id + "&tweet.fields=public_metrics&expansions=attachments.media_keys&media.fields=public_metrics"
-
-        payload={}
-        headers = {
-        'Authorization': 'Bearer ' + bear_token,
-        'Cookie': 'guest_id=v1%3A167354671801418520; guest_id_ads=v1%3A167354671801418520; guest_id_marketing=v1%3A167354671801418520; personalization_id="v1_Yg76iBwLIOAcAZZ145rAAA=="'
-        }
-
-        response = requests.request("GET", url, headers=headers, data=payload)
-        data = response.json()
-        print(data)
-        like_count = data['data'][0]['public_metrics']['like_count']
-        view_count = data['data'][0]['public_metrics']['impression_count']
-        individual_text = data['data'][0]['text']
-        text.append(individual_text)
-        likes.append(like_count)
-        views.append(view_count)
-
-    for tweet_id in list_of_tweet_ids:
-        url = "https://api.twitter.com/2/tweets?ids=" + tweet_id + "&tweet.fields=attachments,author_id,context_annotations,created_at,entities,geo,id,in_reply_to_user_id,lang,possibly_sensitive,public_metrics,referenced_tweets,source,text,withheld&expansions=referenced_tweets.id"
-
-        payload={}
-        headers = {
-        'Authorization': 'Bearer ' + bear_token,
-        'Cookie': 'guest_id=v1%3A167354671801418520; guest_id_ads=v1%3A167354671801418520; guest_id_marketing=v1%3A167354671801418520; personalization_id="v1_Yg76iBwLIOAcAZZ145rAAA=="'
-        }
-
-        response = requests.request("GET", url, headers=headers, data=payload)
-
-        data = response.json()
-        create_dates = data['data'][0]['created_at']
-        dates.append(create_dates)
-
-    for i in range(len(list_of_tweet_ids)):
-        list_of_tweet_ids[i] = int(list_of_tweet_ids[i])
-
-    for i in range(len(likes)):
-        likes[i] = int(likes[i])
-
-    for i in range(len(views)):
-        views[i] = int(views[i])
-
-    tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'likes':likes, 'views':views, 'created_on':dates}
-    return tweets_info
+            except Exception as e:
+               # Rolling back in case of error
+               conn.rollback()
+               logging.error(e)
+      # Closing the connection
+      conn.close()
+      time.sleep(900)
