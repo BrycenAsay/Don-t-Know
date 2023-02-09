@@ -14,12 +14,15 @@ def format_dates(date):
 last_tweet_access_method = ['2022-12-18T19:08:47.000Z'] 
 
 if __name__ == '__main__':
+   # define starting variables
+   USERNAME = 'Jack'
+   USER_ID = get_user_id()
    for i in range(0,3):
       if last_tweet_access_method != []:
          access_last_tweet = last_tweet_access_method[-1]
       else:
          access_last_tweet = []
-      sample_info = get_tweet_info(get_tweets(get_user_id('Jack', auth), access_last_tweet, auth), auth)
+      sample_info = get_tweet_info(get_tweets())
       last_tweet_access_method.append(sample_info['created_on'][-1])
       sql_info_to_upload = []
       colms = ['tweet_id','body','likes','views','created_on'] 
