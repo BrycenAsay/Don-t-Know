@@ -19,3 +19,9 @@ def get_user_id(USERNAME, bear_token):
 
     user_id = data['data']['id']
     return user_id
+
+def get_tweet_ids(list_of_tweets):
+    list_of_tweet_ids = []
+    for tweet in list_of_tweets:
+        list_of_tweet_ids.append(tweet['id'])
+    return list_of_tweet_ids
