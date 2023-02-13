@@ -63,4 +63,4 @@ def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
 
     # store public metrics into a dictionary for easy manipulation of data
     tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'likes':likes, 'views':views, 'created_on':dates}
-    return tweets_info
+    return pd.DataFrame(tweets_info)
