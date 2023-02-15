@@ -18,16 +18,22 @@ USER_ID = get_user_id()
 
 # retrives a list of tweets for a given user
 def get_tweets(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=USERNAME, user_id=USER_ID).get_tweets()):
+    tweets_and_token = []
     response = requests.request("GET", url, headers=headers, data=payload)
     data = response.json()
     print(data)
+    input('STOP')
     list_of_tweets = data['data']
-    return list_of_tweets
+    next_token = data['meta']['next_token']
+    tweets_and_token.append(list_of_tweets)
+    tweets_and_token.append(next_token)
+    return tweets_and_token
 
 # retrives some public metrics on the list of tweets from a given user
 def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
     # create a list of tweet_ids so that when can iterate through them that way
     list_of_tweet_ids = []
+    print(list_of_tweets[0])
     for tweet in list_of_tweets:
         list_of_tweet_ids.append(tweet['id'])
 
