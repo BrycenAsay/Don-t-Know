@@ -12,14 +12,15 @@ PAYLOAD = {}
 
 # create a class called API_Calls which stores all urls and proper peramaters to make the format the API urls properly when called upon
 class API_CALLS:
-    def __init__(self, username=None, user_id=None, tweet_id=None):
+    def __init__(self, username=None, user_id=None, tweet_id=None, next_token=None):
         self.username = username
         self.user_id = user_id
         self.tweet_id = tweet_id
+        self.next_token = next_token
     def get_user_id(self):
         return 'https://api.twitter.com/2/users/by/username/' + self.username
     def get_tweets(self):
-        return f"https://api.twitter.com/2/users/" + self.user_id + "/tweets?tweet.fields=created_at&max_results=100"
+        return f"https://api.twitter.com/2/users/" + self.user_id + "/tweets?tweet.fields=created_at&max_results=5"
     def get_tweets_txt_likes_views(self):
         return "https://api.twitter.com/2/tweets?ids=" + self.tweet_id + "&tweet.fields=public_metrics&expansions=attachments.media_keys&media.fields=public_metrics"
     def get_tweets_create_date(self):
