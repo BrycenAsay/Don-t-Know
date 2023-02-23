@@ -1,6 +1,7 @@
 # import required functions
 import requests
 import pandas as pd
+import time
 from IPython.display import display
 from API_Calls import API_CALLS, HEADERS, PAYLOAD
 
@@ -15,27 +16,26 @@ def get_user_id(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=USERN
     return user_id
 
 USER_ID = get_user_id()
+next_token_list = ['']
+list_of_tweets = []
 
 # retrives a list of tweets for a given user
-def get_tweets(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=USERNAME, user_id=USER_ID).get_tweets()):
-    tweets_and_token = []
-    response = requests.request("GET", url, headers=headers, data=payload)
-    data = response.json()
-    print(data)
-    input('STOP')
-    list_of_tweets = data['data']
-    next_token = data['meta']['next_token']
-    tweets_and_token.append(list_of_tweets)
-    tweets_and_token.append(next_token)
-    return tweets_and_token
+def get_tweets(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_tweets()):
+    for i in range(40):
+        response = requests.request("GET", url, headers=headers, data=payload)
+        data = response.json()
+        list_of_tweets.append(data['data'])
+        next_token_list.append(data['meta']['next_token'])
+        time.sleep(28)
+    return list_of_tweets
 
 # retrives some public metrics on the list of tweets from a given user
 def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
     # create a list of tweet_ids so that when can iterate through them that way
     list_of_tweet_ids = []
-    print(list_of_tweets[0])
-    for tweet in list_of_tweets:
-        list_of_tweet_ids.append(tweet['id'])
+    for group_of_tweets in list_of_tweets:
+        for tweet in group_of_tweets:
+            list_of_tweet_ids.append(tweet['id'])
 
     # create a seperate list for every public metric
     views = []
@@ -45,6 +45,7 @@ def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
 
     # this will iterate through all the tweets and append the views, likes, and text metrics
     for TWEET_ID in list_of_tweet_ids:
+        time.sleep(3)
         url = API_CALLS(USERNAME, USER_ID, TWEET_ID).get_tweets_txt_likes_views()
         response = requests.request("GET", url, headers=headers, data=payload)
         data = response.json()
@@ -57,6 +58,7 @@ def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
 
     # this will iterate through all the tweets again and in a seperate API Call retrive the created date metric
     for TWEET_ID in list_of_tweet_ids:
+        time.sleep(3)
         url = API_CALLS(USERNAME, USER_ID, TWEET_ID).get_tweets_create_date()
         response = requests.request("GET", url, headers=headers, data=payload)
         data = response.json()

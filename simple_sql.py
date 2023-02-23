@@ -11,6 +11,3 @@ def create_row(table_name, columns, data):
     data = ','.join(data)
     query = f'INSERT INTO {table_name}({columns}) VALUES ({data});'
     return query
-
-colms = ['tweet_id', 'body', 'likes', 'views', 'created_on']
-datatypes = ['int', 'text', 'int', 'int', 'datetime']
