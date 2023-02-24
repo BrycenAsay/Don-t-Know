@@ -53,8 +53,11 @@ def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
             list_of_tweet_ids.append(tweet['id'])
 
     # create a seperate list for every public metric
-    views = []
     likes = []
+    views = []
+    retweets = []
+    replys = []
+    quotes = []
     text = []
     dates = []
 
@@ -66,10 +69,16 @@ def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
         data = error_handling(unchecked_data, url, headers)
         like_count = int(data['data'][0]['public_metrics']['like_count'])
         view_count = int(data['data'][0]['public_metrics']['impression_count'])
+        retweet_count = int(data['data'][0]['public_metrics']['retweet_count'])
+        reply_count = int(data['data'][0]['public_metrics']['reply_count'])
+        quote_count = int(data['data'][0]['public_metrics']['quote_count'])
         individual_text = data['data'][0]['text']
+        likes.append(like_count)
+        views.append(view_count)
+        retweets.append(retweet_count)
+        replys.append(reply_count)
+        quotes.append(quote_count)
         text.append(individual_text)
-        likes.append(int(like_count))
-        views.append(int(view_count))
 
     # this will iterate through all the tweets again and in a seperate API Call retrive the created date metric
     for TWEET_ID in list_of_tweet_ids:
@@ -85,5 +94,5 @@ def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
         list_of_tweet_ids[i] = int(list_of_tweet_ids[i])
 
     # store public metrics into a dictionary for easy manipulation of data
-    tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'likes':likes, 'views':views, 'created_on':dates}
+    tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'likes':likes, 'views':views, 'retweets':retweets, 'replys':replys, 'quotes':quotes, 'created_on':dates}
     return pd.DataFrame(tweets_info)
