@@ -23,5 +23,3 @@ class API_CALLS:
         return f"https://api.twitter.com/2/users/" + self.user_id + "/tweets?tweet.fields=created_at&max_results=5" + self.pag_token
     def get_tweets_txt_likes_views(self):
         return "https://api.twitter.com/2/tweets?ids=" + self.tweet_id + "&tweet.fields=public_metrics&expansions=attachments.media_keys&media.fields=public_metrics"
-    def get_tweets_create_date(self):
-        return "https://api.twitter.com/2/tweets?ids=" + self.tweet_id + "&tweet.fields=attachments,author_id,context_annotations,created_at,entities,geo,id,in_reply_to_user_id,lang,possibly_sensitive,public_metrics,referenced_tweets,source,text,withheld&expansions=referenced_tweets.id"
