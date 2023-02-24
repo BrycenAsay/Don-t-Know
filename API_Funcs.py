@@ -31,6 +31,7 @@ next_token_list = ['']
 # retrives a list of tweets for a given user
 def get_tweets(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_tweets()):
     list_of_tweets = []
+    list_of_dates = []
     next_token_exists = True
     while next_token_exists:
         response = requests.request("GET", url, headers=headers, data=payload)
@@ -38,15 +39,21 @@ def get_tweets(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=_USERN
         data = error_handling(unchecked_data, url, headers)
         if 'next_token' not in data['meta']:
             list_of_tweets.append(data['data'])
+            group_of_tweets = list_of_tweets[-1]
+            for tweet in group_of_tweets:
+                list_of_dates.append(tweet['created_at'])
             next_token_exists = False
         else:
             list_of_tweets.append(data['data'])
+            group_of_tweets = list_of_tweets[-1]
+            for tweet in group_of_tweets:
+                list_of_dates.append(tweet['created_at'])
             next_token_list.append("&pagination_token=" + data['meta']['next_token'])
             url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_tweets()
-    return list_of_tweets
+    return list_of_tweets, list_of_dates
 
 # retrives some public metrics on the list of tweets from a given user
-def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
+def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=PAYLOAD):
     # create a list of tweet_ids so that when can iterate through them that way
     list_of_tweet_ids = []
     for group_of_tweets in list_of_tweets:
@@ -60,7 +67,7 @@ def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
     replys = []
     quotes = []
     text = []
-    dates = []
+    dates = pre_retrived_dates
 
     # this will iterate through all the tweets and append the views, likes, and text metrics
     for TWEET_ID in list_of_tweet_ids:
@@ -80,16 +87,7 @@ def get_tweet_info(list_of_tweets, headers=HEADERS, payload=PAYLOAD):
         replys.append(reply_count)
         quotes.append(quote_count)
         text.append(individual_text)
-
-    # this will iterate through all the tweets again and in a seperate API Call retrive the created date metric
-    for TWEET_ID in list_of_tweet_ids:
-        url = API_CALLS(_USERNAME, USER_ID, TWEET_ID).get_tweets_create_date()
-        response = requests.request("GET", url, headers=headers, data=payload)
-        unchecked_data = response.json()
-        data = error_handling(unchecked_data, url, headers)
-        create_dates = data['data'][0]['created_at']
-        dates.append(create_dates)
-
+        
     # once we are done using the string version of the IDs for the URL functionality change it back to integers for proper storage into a database/pandas dataframe
     for i in range(len(list_of_tweet_ids)):
         list_of_tweet_ids[i] = int(list_of_tweet_ids[i])
