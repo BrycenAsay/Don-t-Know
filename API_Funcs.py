@@ -6,7 +6,7 @@ from IPython.display import display
 from API_Calls import API_CALLS, HEADERS, PAYLOAD
 from config import _USERNAME
 
-# defines error handling for 429 api-limit-error
+# defines error handling for 429 api-limit-error, can handle other errors too if you want it to though
 def error_handling(_data, _url, _headers):
     if 'status' in _data:
         if _data['status'] == 429:
@@ -24,12 +24,13 @@ def get_user_id(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=_USER
     user_id = data['data']['id']
     return user_id
 
+# global variables for user_id and pagination tokens used by functions below
 USER_ID = get_user_id()
 next_token_list = ['']
-list_of_tweets = []
 
 # retrives a list of tweets for a given user
 def get_tweets(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_tweets()):
+    list_of_tweets = []
     next_token_exists = True
     while next_token_exists:
         response = requests.request("GET", url, headers=headers, data=payload)
