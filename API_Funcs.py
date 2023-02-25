@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import time
 from IPython.display import display
-from API_Calls import API_CALLS, OAUTH_HEADERS, HEADERS, PAYLOAD
+from API_Calls import API_CALLS, OAUTH_GET_TOKENS_HEADERS, OAUTH_ACCESS_TOKENS_HEADERS, HEADERS, PAYLOAD
 from config import _USERNAME
 
 # defines error handling for 429 api-limit-error, can handle other errors too if you want it to though
@@ -17,14 +17,30 @@ def error_handling(_data, _url, _headers):
         return _data
 
 # retrives OAuth Tokens
-def get_OAuth_Tokens(headers=OAUTH_HEADERS, payload=PAYLOAD, url = API_CALLS().get_OAuth_Tokens()):
+def get_OAuth_Tokens(headers=OAUTH_GET_TOKENS_HEADERS, payload=PAYLOAD, url = API_CALLS().get_OAuth_Tokens()):
     O_Auth_Tokens = {}
     response = requests.request("POST", url, headers=headers, data=payload)
     data = response.text
     O_Auth_Tokens['OAuth_Token'] = data[12:39]
     O_Auth_Tokens['OAuth_Secret'] = data[59:91]
     print('The user must visit THIS URL for Authorization purposes: ' + 'https://api.twitter.com/oauth/authorize?oauth_token=' + O_Auth_Tokens['OAuth_Token'])
+    O_Auth_Verifier = input('Look in the URL for the verifier and enter here: ')
+    O_Auth_Tokens['OAuth_Verifier'] = O_Auth_Verifier
     return O_Auth_Tokens
+
+def Access_Token(O_AUTH_TOKENS, headers=OAUTH_ACCESS_TOKENS_HEADERS, payload=PAYLOAD):
+    user_OAuth_Creds = {}
+    url = API_CALLS(oauth_token=O_AUTH_TOKENS['OAuth_Token'], oauth_verifier=O_AUTH_TOKENS['OAuth_Verifier']).access_OAuth_Tokens()
+    response = requests.request("POST", url, headers=headers, data=payload)
+    data = (response.text).split('&')
+    for i in range(len(data)):
+        seperated_data = data[i].split('=')
+        data[i] = seperated_data[1]
+    user_OAuth_Creds['user_oauth_token'] = data[0]
+    user_OAuth_Creds['user_oauth_secret'] = data[1]
+    user_OAuth_Creds['user_id'] = data[2]
+    user_OAuth_Creds['screen_name'] = data[3]
+    return user_OAuth_Creds
 
 # retrives the user_id given a username
 def get_user_id(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=_USERNAME).get_user_id()):
