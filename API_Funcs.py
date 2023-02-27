@@ -71,7 +71,6 @@ def get_tweets(headers=HEADERS, payload=PAYLOAD, time_specific=False):
         response = requests.request("GET", url, headers=headers, data=payload)
         unchecked_data = response.json()
         data = error_handling(unchecked_data, url, headers)
-        print(data)
         if 'next_token' not in data['meta']:
             list_of_tweets.append(data['data'])
             group_of_tweets = list_of_tweets[-1]
