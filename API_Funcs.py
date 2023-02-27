@@ -2,9 +2,12 @@
 import requests
 import pandas as pd
 import time
+from datetime import date
+import logging
+logging.basicConfig(level=logging.DEBUG)
 from IPython.display import display
 from API_Calls import API_CALLS, OAUTH_GET_TOKENS_HEADERS, OAUTH_ACCESS_TOKENS_HEADERS, HEADERS, PAYLOAD
-from config import _USERNAME
+from config import _USERNAME, API_KEY
 
 # defines error handling for 429 api-limit-error, can handle other errors too if you want it to though
 def error_handling(_data, _url, _headers):
@@ -21,6 +24,7 @@ def get_OAuth_Tokens(headers=OAUTH_GET_TOKENS_HEADERS, payload=PAYLOAD, url = AP
     O_Auth_Tokens = {}
     response = requests.request("POST", url, headers=headers, data=payload)
     data = response.text
+    print(data)
     O_Auth_Tokens['OAuth_Token'] = data[12:39]
     O_Auth_Tokens['OAuth_Secret'] = data[59:91]
     print('The user must visit THIS URL for Authorization purposes: ' + 'https://api.twitter.com/oauth/authorize?oauth_token=' + O_Auth_Tokens['OAuth_Token'])
@@ -55,7 +59,11 @@ USER_ID = get_user_id()
 next_token_list = ['']
 
 # retrives a list of tweets for a given user
-def get_tweets(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_tweets()):
+def get_tweets(headers=HEADERS, payload=PAYLOAD, time_specific=False):
+    if time_specific:
+        url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_tweets_time_specific()
+    else:
+        url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_tweets()
     list_of_tweets = []
     list_of_dates = []
     next_token_exists = True
@@ -63,6 +71,7 @@ def get_tweets(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=_USERN
         response = requests.request("GET", url, headers=headers, data=payload)
         unchecked_data = response.json()
         data = error_handling(unchecked_data, url, headers)
+        print(data)
         if 'next_token' not in data['meta']:
             list_of_tweets.append(data['data'])
             group_of_tweets = list_of_tweets[-1]
