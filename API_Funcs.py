@@ -32,6 +32,7 @@ def get_OAuth_Tokens(headers=OAUTH_GET_TOKENS_HEADERS, payload=PAYLOAD, url = AP
     O_Auth_Tokens['OAuth_Verifier'] = O_Auth_Verifier
     return O_Auth_Tokens
 
+# accesses user OAuth tokens
 def Access_Token(O_AUTH_TOKENS, headers=OAUTH_ACCESS_TOKENS_HEADERS, payload=PAYLOAD):
     user_OAuth_Creds = {}
     url = API_CALLS(oauth_token=O_AUTH_TOKENS['OAuth_Token'], oauth_verifier=O_AUTH_TOKENS['OAuth_Verifier']).access_OAuth_Tokens()
@@ -129,3 +130,92 @@ def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=
     # store public metrics into a dictionary for easy manipulation of data
     tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'likes':likes, 'views':views, 'retweets':retweets, 'replys':replys, 'quotes':quotes, 'created_on':dates}
     return pd.DataFrame(tweets_info)
+
+# retrives a list of users the specified user is following
+def get_following(headers=HEADERS, payload=PAYLOAD):
+    next_token_list = ['']
+    url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_following()
+    list_of_following = []
+    list_of_ids = []
+    list_of_names = []
+    list_of_usernames = []
+    next_token_exists = True
+    while next_token_exists:
+        response = requests.request("GET", url, headers=headers, data=payload)
+        unchecked_data = response.json()
+        data = error_handling(unchecked_data, url, headers)
+        print(data)
+        if 'next_token' not in data['meta']:
+            list_of_following.append(data['data'])
+            group_of_tweets = list_of_following[-1]
+            for tweet in group_of_tweets:
+                list_of_ids.append(tweet['id'])
+                list_of_names.append(tweet['name'])
+                list_of_usernames.append(tweet['username'])
+            next_token_exists = False
+        else:
+            list_of_following.append(data['data'])
+            group_of_tweets = list_of_following[-1]
+            for tweet in group_of_tweets:
+                list_of_ids.append(tweet['id'])
+                list_of_names.append(tweet['name'])
+                list_of_usernames.append(tweet['username'])
+            next_token_list.append("&pagination_token=" + data['meta']['next_token'])
+            print(next_token_list[-1])
+            url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_following()
+    following_info = {'id': list_of_ids, 'name': list_of_names, 'username': list_of_usernames}
+    return following_info
+
+# retrives a list of users the specified user is being followed by
+def get_followers(following_info, headers=HEADERS, payload=PAYLOAD):
+    next_token_list = ['']
+    url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_followers()
+    list_of_following = []
+    list_of_ids = []
+    list_of_names = []
+    list_of_usernames = []
+    next_token_exists = True
+    while next_token_exists:
+        response = requests.request("GET", url, headers=headers, data=payload)
+        unchecked_data = response.json()
+        data = error_handling(unchecked_data, url, headers)
+        print(data)
+        if 'next_token' not in data['meta']:
+            list_of_following.append(data['data'])
+            group_of_tweets = list_of_following[-1]
+            for tweet in group_of_tweets:
+                list_of_ids.append(tweet['id'])
+                list_of_names.append(tweet['name'])
+                list_of_usernames.append(tweet['username'])
+            next_token_exists = False
+        else:
+            list_of_following.append(data['data'])
+            group_of_tweets = list_of_following[-1]
+            for tweet in group_of_tweets:
+                list_of_ids.append(tweet['id'])
+                list_of_names.append(tweet['name'])
+                list_of_usernames.append(tweet['username'])
+            next_token_list.append("&pagination_token=" + data['meta']['next_token'])
+            print(next_token_list[-1])
+            url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_followers()
+    followers_info = {'id': list_of_ids, 'name': list_of_names, 'username': list_of_usernames}
+    mutal_following = []
+    for following_id in following_info['id']:
+        if following_id in followers_info['id']:
+            mutal_following.append('True')
+        else:
+            mutal_following.append('False')
+    print(mutal_following)
+    following_info['mutal'] = mutal_following
+    print(following_info)
+    mutal_followers = []
+    for followers_id in followers_info['id']:
+        if followers_id in following_info['id']:
+            mutal_followers.append('True')
+        else:
+            mutal_followers.append('False')
+    followers_info['mutal'] = mutal_followers
+    return_value = []
+    return_value.append(pd.DataFrame(following_info))
+    return_value.append(pd.DataFrame(followers_info))
+    return return_value
