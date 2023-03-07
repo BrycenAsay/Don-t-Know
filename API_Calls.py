@@ -1,6 +1,7 @@
 # creating a dictionary to store all twitter APIs and respective headers
 from config import BEARER_TOKEN as bear_token, API_KEY
 from datetime import datetime, date, timedelta
+import time
 
 # headers for all public API Calls
 HEADERS = {
@@ -26,6 +27,7 @@ class API_CALLS:
         self.pag_token = pag_token
         self.oauth_token = oauth_token
         self.oauth_verifier = oauth_verifier
+        self.time_stamp = str(int(round((time.time()), 0)) - 300)
         current_time = datetime.now()
         self.end_time = f'{str(current_time)[0:10]}T{str(current_time)[11:20]}000Z'
         thirty_days_back = str(date.today()-timedelta(days=30))
@@ -38,11 +40,13 @@ class API_CALLS:
         return f"https://api.twitter.com/2/users/{self.user_id}/tweets?tweet.fields=created_at&max_results=100&start_time={self.start_time}&end_time={self.end_time}"
     def get_tweets_txt_likes_views(self):
         return "https://api.twitter.com/2/tweets?ids=" + self.tweet_id + "&tweet.fields=public_metrics&expansions=attachments.media_keys&media.fields=public_metrics"
+    def get_private_tweet_info(self):
+        return f"https://api.twitter.com/2/tweets/{self.tweet_id}?tweet.fields=non_public_metrics,organic_metrics&media.fields=non_public_metrics,organic_metrics&expansions=attachments.media_keys"
     def get_following(self):
         return f"https://api.twitter.com/2/users/{self.user_id}/following?max_results=100" + self.pag_token
     def get_followers(self):
         return f"https://api.twitter.com/2/users/{self.user_id}/followers?max_results=100" + self.pag_token
     def get_OAuth_Tokens(self):
-        return f'https://api.twitter.com/oauth/request_token?oauth_consumer_key={API_KEY}&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1677427442&oauth_nonce=wVsQ2P8nTbb&oauth_version=1.0&oauth_signature=3BSY1kX9DuLKypRMfc4%2Fn3nHgJE%3D'
+        return f'https://api.twitter.com/oauth/request_token'
     def access_OAuth_Tokens(self):
         return f'https://api.twitter.com/oauth/access_token?oauth_token={self.oauth_token}&oauth_verifier={self.oauth_verifier}&oauth_consumer_key={API_KEY}'
