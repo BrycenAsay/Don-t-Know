@@ -2,29 +2,34 @@
 import requests
 import pandas as pd
 import time
-from datetime import date
+from sqlalchemy import create_engine
 import logging
 logging.basicConfig(level=logging.DEBUG)
 from IPython.display import display
-from API_Calls import API_CALLS, OAUTH_GET_TOKENS_HEADERS, OAUTH_ACCESS_TOKENS_HEADERS, HEADERS, PAYLOAD
-from config import _USERNAME, API_KEY
+from API_Calls import API_CALLS, OAUTH_ACCESS_TOKENS_HEADERS, HEADERS, PAYLOAD
+from config import _USERNAME, API_KEY, API_SECRET, USER, HOST, PASSWORD, DATABASE
+from requests_oauthlib import OAuth1
 
-# defines error handling for 429 api-limit-error, can handle other errors too if you want it to though
-def error_handling(_data, _url, _headers):
+def error_handling(_data, _url, _headers=False, _auth=False):
+    # defines error handling for 429 api-limit-error, can handle other errors too if you want it to though
     if 'status' in _data:
         if _data['status'] == 429:
             time.sleep(903)
-            _response = requests.request("GET", _url, headers=_headers)
-            return _response.json()
+            if _headers != False:
+                _response = requests.request("GET", _url, headers=_headers)
+                return _response.json()
+            else:
+                _response = requests.get(_url, auth=_auth)
+                return _response.json()
     else:
         return _data
 
-# retrives OAuth Tokens
-def get_OAuth_Tokens(headers=OAUTH_GET_TOKENS_HEADERS, payload=PAYLOAD, url = API_CALLS().get_OAuth_Tokens()):
+def get_OAuth_Tokens(payload=PAYLOAD, url = API_CALLS().get_OAuth_Tokens()):
+    # retrives OAuth Tokens
     O_Auth_Tokens = {}
-    response = requests.request("POST", url, headers=headers, data=payload)
+    auth = OAuth1(API_KEY, API_SECRET)
+    response = requests.request("POST", url, auth=auth, data=payload)
     data = response.text
-    print(data)
     O_Auth_Tokens['OAuth_Token'] = data[12:39]
     O_Auth_Tokens['OAuth_Secret'] = data[59:91]
     print('The user must visit THIS URL for Authorization purposes: ' + 'https://api.twitter.com/oauth/authorize?oauth_token=' + O_Auth_Tokens['OAuth_Token'])
@@ -32,8 +37,8 @@ def get_OAuth_Tokens(headers=OAUTH_GET_TOKENS_HEADERS, payload=PAYLOAD, url = AP
     O_Auth_Tokens['OAuth_Verifier'] = O_Auth_Verifier
     return O_Auth_Tokens
 
-# accesses user OAuth tokens
 def Access_Token(O_AUTH_TOKENS, headers=OAUTH_ACCESS_TOKENS_HEADERS, payload=PAYLOAD):
+    # accesses user OAuth tokens
     user_OAuth_Creds = {}
     url = API_CALLS(oauth_token=O_AUTH_TOKENS['OAuth_Token'], oauth_verifier=O_AUTH_TOKENS['OAuth_Verifier']).access_OAuth_Tokens()
     response = requests.request("POST", url, headers=headers, data=payload)
@@ -47,8 +52,31 @@ def Access_Token(O_AUTH_TOKENS, headers=OAUTH_ACCESS_TOKENS_HEADERS, payload=PAY
     user_OAuth_Creds['screen_name'] = data[3]
     return user_OAuth_Creds
 
-# retrives the user_id given a username
+def token_retrieval():
+    # retrives user OAuth tokens for getting private metrics from SQL table
+    engine = create_engine(f'mysql+pymysql://{USER}:{PASSWORD}@{HOST}/{DATABASE}')
+    User_Auth = pd.DataFrame()
+    with engine.connect() as conn:
+        User_Auth = (pd.read_sql_table('User_OAuth_Info', conn)).to_dict()
+    found_name = False
+    i = 0
+    while found_name == False:
+        if i not in User_Auth['screen_name']:
+            print('ERROR, ENTER A VALID USERNAME FOR PRIVATE METRICS')
+            found_name = True
+            return
+        name = (User_Auth['screen_name'][i]).lower()
+        if name == _USERNAME.lower():
+            users_number_id = i
+            found_name == True
+            break
+        i += 1
+    user_oauth_token = User_Auth['user_oauth_token'][users_number_id]
+    user_oauth_secret = User_Auth['user_oauth_secret'][users_number_id]
+    return user_oauth_token, user_oauth_secret
+
 def get_user_id(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=_USERNAME).get_user_id()):
+    # retrives the user_id given a username
     response = requests.request("GET", url, headers=headers, data=payload)
     unchecked_data = response.json()
     data = error_handling(unchecked_data, url, headers)
@@ -59,8 +87,8 @@ def get_user_id(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=_USER
 USER_ID = get_user_id()
 next_token_list = ['']
 
-# retrives a list of tweets for a given user
 def get_tweets(headers=HEADERS, payload=PAYLOAD, time_specific=False):
+    # retrives a list of tweets for a given user, you can choose the past 30 days or all tweets depending on wether you are getting public or private metrics
     if time_specific:
         url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_tweets_time_specific()
     else:
@@ -131,8 +159,50 @@ def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=
     tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'likes':likes, 'views':views, 'retweets':retweets, 'replys':replys, 'quotes':quotes, 'created_on':dates}
     return pd.DataFrame(tweets_info)
 
-# retrives a list of users the specified user is following
+def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, API_K=API_KEY, API_S=API_SECRET, payload=PAYLOAD):
+    # create a list of tweet_ids so that when can iterate through them that way
+    list_of_tweet_ids = []
+    for group_of_tweets in list_of_tweets:
+        for tweet in group_of_tweets:
+            list_of_tweet_ids.append(tweet['id'])
+
+    auth = OAuth1(API_K, API_S, USER_T, TOKEN_S)
+
+    # create a seperate list for every public metric
+    user_profile_clicks = []
+    impression_count = []
+    text = []
+    dates = pre_retrived_dates
+
+    # this will iterate through all the tweets and append the views, likes, and text metrics
+    for TWEET_ID in list_of_tweet_ids:
+        url = API_CALLS(_USERNAME, USER_ID, TWEET_ID).get_private_tweet_info()
+        response = requests.request("GET", url, auth=auth, data=payload)
+        unchecked_data = response.json()
+        data = error_handling(unchecked_data, url, auth)
+        if 'errors' not in data:
+            _user_profile_clicks = data['data']['non_public_metrics']['user_profile_clicks']
+            _impression_count = data['data']['non_public_metrics']['impression_count']
+            _text = data['data']['text']
+            user_profile_clicks.append(_user_profile_clicks)
+            impression_count.append(_impression_count)
+            text.append(_text)
+        else:
+            user_profile_clicks.append('N/A')
+            impression_count.append('N/A')
+            text.append('N/A')
+
+    # once we are done using the string version of the IDs for the URL functionality change it back to integers for proper storage into a database/pandas dataframe
+    for i in range(len(list_of_tweet_ids)):
+        list_of_tweet_ids[i] = int(list_of_tweet_ids[i])
+
+    # store public metrics into a dictionary for easy manipulation of data
+    tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'impression_count':impression_count, 'user_profile_clicks':user_profile_clicks, 'created_on':dates}
+
+    return pd.DataFrame(tweets_info)
+
 def get_following(headers=HEADERS, payload=PAYLOAD):
+    # retrives a list of users the specified user is following
     next_token_list = ['']
     url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_following()
     list_of_following = []
@@ -144,7 +214,6 @@ def get_following(headers=HEADERS, payload=PAYLOAD):
         response = requests.request("GET", url, headers=headers, data=payload)
         unchecked_data = response.json()
         data = error_handling(unchecked_data, url, headers)
-        print(data)
         if 'next_token' not in data['meta']:
             list_of_following.append(data['data'])
             group_of_tweets = list_of_following[-1]
@@ -161,13 +230,12 @@ def get_following(headers=HEADERS, payload=PAYLOAD):
                 list_of_names.append(tweet['name'])
                 list_of_usernames.append(tweet['username'])
             next_token_list.append("&pagination_token=" + data['meta']['next_token'])
-            print(next_token_list[-1])
             url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_following()
     following_info = {'id': list_of_ids, 'name': list_of_names, 'username': list_of_usernames}
     return following_info
 
-# retrives a list of users the specified user is being followed by
 def get_followers(following_info, headers=HEADERS, payload=PAYLOAD):
+    # define next_token_list to store pagination tokens for paginating purposes, also empty lists for data needing to be stored
     next_token_list = ['']
     url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_followers()
     list_of_following = []
@@ -175,11 +243,12 @@ def get_followers(following_info, headers=HEADERS, payload=PAYLOAD):
     list_of_names = []
     list_of_usernames = []
     next_token_exists = True
+
+    # while the pagniation token exists, append data. Once you reach the end, stop.
     while next_token_exists:
         response = requests.request("GET", url, headers=headers, data=payload)
         unchecked_data = response.json()
         data = error_handling(unchecked_data, url, headers)
-        print(data)
         if 'next_token' not in data['meta']:
             list_of_following.append(data['data'])
             group_of_tweets = list_of_following[-1]
@@ -196,18 +265,17 @@ def get_followers(following_info, headers=HEADERS, payload=PAYLOAD):
                 list_of_names.append(tweet['name'])
                 list_of_usernames.append(tweet['username'])
             next_token_list.append("&pagination_token=" + data['meta']['next_token'])
-            print(next_token_list[-1])
             url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_followers()
     followers_info = {'id': list_of_ids, 'name': list_of_names, 'username': list_of_usernames}
+
+    # create a mutal following list that will either append true or false depending on if a given user is both a follower and you are following
     mutal_following = []
     for following_id in following_info['id']:
         if following_id in followers_info['id']:
             mutal_following.append('True')
         else:
             mutal_following.append('False')
-    print(mutal_following)
     following_info['mutal'] = mutal_following
-    print(following_info)
     mutal_followers = []
     for followers_id in followers_info['id']:
         if followers_id in following_info['id']:
