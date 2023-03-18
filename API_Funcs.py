@@ -101,10 +101,12 @@ def get_tweets(headers=HEADERS, payload=PAYLOAD, time_specific=False):
         unchecked_data = response.json()
         data = error_handling(unchecked_data, url, headers)
         if 'next_token' not in data['meta']:
-            list_of_tweets.append(data['data'])
-            group_of_tweets = list_of_tweets[-1]
-            for tweet in group_of_tweets:
-                list_of_dates.append(tweet['created_at'])
+            if data['meta']['result_count'] != 0:
+                list_of_tweets.append(data['data'])
+                group_of_tweets = list_of_tweets[-1]
+                for tweet in group_of_tweets:
+                    list_of_dates.append(tweet['created_at'])
+                next_token_exists = False
             next_token_exists = False
         else:
             list_of_tweets.append(data['data'])
@@ -130,6 +132,10 @@ def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=
     replys = []
     quotes = []
     text = []
+    includes_media = []
+    media_key = []
+    media_views = []
+    media_type = []
     dates = pre_retrived_dates
 
     # this will iterate through all the tweets and append the views, likes, and text metrics
@@ -144,6 +150,20 @@ def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=
         reply_count = int(data['data'][0]['public_metrics']['reply_count'])
         quote_count = int(data['data'][0]['public_metrics']['quote_count'])
         individual_text = data['data'][0]['text']
+        if 'includes' in data:
+            if 'media' in data['includes']:
+                includes_media.append('True')
+                media_key.append(data['includes']['media'][0]['media_key'])
+                if 'public_metrics' in data['includes']['media'][0]:
+                    media_views.append(data['includes']['media'][0]['public_metrics']['view_count'])
+                else:
+                    media_views.append('N/A')
+                media_type.append(data['includes']['media'][0]['type'])
+        else:
+            includes_media.append('False')
+            media_key.append('N/A')
+            media_views.append('N/A')
+            media_type.append('N/A')
         likes.append(like_count)
         views.append(view_count)
         retweets.append(retweet_count)
@@ -156,7 +176,10 @@ def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=
         list_of_tweet_ids[i] = int(list_of_tweet_ids[i])
 
     # store public metrics into a dictionary for easy manipulation of data
-    tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'likes':likes, 'views':views, 'retweets':retweets, 'replys':replys, 'quotes':quotes, 'created_on':dates}
+    tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'likes':likes, 'views':views, 
+                   'retweets':retweets, 'replys':replys, 'quotes':quotes, 
+                   'includes_media':includes_media, 'media_key':media_key, 'media_views':media_views,
+                    'media_type':media_type, 'created_on':dates}
     return pd.DataFrame(tweets_info)
 
 def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, API_K=API_KEY, API_S=API_SECRET, payload=PAYLOAD):
@@ -171,6 +194,7 @@ def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, 
     # create a seperate list for every public metric
     user_profile_clicks = []
     impression_count = []
+    url_link_clicks = []
     text = []
     dates = pre_retrived_dates
 
@@ -183,6 +207,10 @@ def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, 
         if 'errors' not in data:
             _user_profile_clicks = data['data']['non_public_metrics']['user_profile_clicks']
             _impression_count = data['data']['non_public_metrics']['impression_count']
+            if 'url_link_clicks' in data['data']['non_public_metrics']:
+                url_link_clicks.append(data['data']['non_public_metrics']['url_link_clicks'])
+            else:
+                url_link_clicks.append('N/A')
             _text = data['data']['text']
             user_profile_clicks.append(_user_profile_clicks)
             impression_count.append(_impression_count)
@@ -190,6 +218,7 @@ def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, 
         else:
             user_profile_clicks.append('N/A')
             impression_count.append('N/A')
+            url_link_clicks.append('N/A')
             text.append('N/A')
 
     # once we are done using the string version of the IDs for the URL functionality change it back to integers for proper storage into a database/pandas dataframe
@@ -197,7 +226,7 @@ def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, 
         list_of_tweet_ids[i] = int(list_of_tweet_ids[i])
 
     # store public metrics into a dictionary for easy manipulation of data
-    tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'impression_count':impression_count, 'user_profile_clicks':user_profile_clicks, 'created_on':dates}
+    tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'impression_count':impression_count, 'user_profile_clicks':user_profile_clicks, 'url_link_clicks':url_link_clicks, 'created_on':dates}
 
     return pd.DataFrame(tweets_info)
 
