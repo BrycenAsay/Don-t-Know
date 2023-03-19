@@ -152,18 +152,18 @@ def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=
         individual_text = data['data'][0]['text']
         if 'includes' in data:
             if 'media' in data['includes']:
-                includes_media.append('True')
+                includes_media.append(True)
                 media_key.append(data['includes']['media'][0]['media_key'])
                 if 'public_metrics' in data['includes']['media'][0]:
                     media_views.append(data['includes']['media'][0]['public_metrics']['view_count'])
                 else:
-                    media_views.append('N/A')
+                    media_views.append(None)
                 media_type.append(data['includes']['media'][0]['type'])
         else:
-            includes_media.append('False')
-            media_key.append('N/A')
-            media_views.append('N/A')
-            media_type.append('N/A')
+            includes_media.append(False)
+            media_key.append(None)
+            media_views.append(None)
+            media_type.append(None)
         likes.append(like_count)
         views.append(view_count)
         retweets.append(retweet_count)
@@ -210,16 +210,16 @@ def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, 
             if 'url_link_clicks' in data['data']['non_public_metrics']:
                 url_link_clicks.append(data['data']['non_public_metrics']['url_link_clicks'])
             else:
-                url_link_clicks.append('N/A')
+                url_link_clicks.append(None)
             _text = data['data']['text']
             user_profile_clicks.append(_user_profile_clicks)
             impression_count.append(_impression_count)
             text.append(_text)
         else:
-            user_profile_clicks.append('N/A')
-            impression_count.append('N/A')
-            url_link_clicks.append('N/A')
-            text.append('N/A')
+            user_profile_clicks.append(None)
+            impression_count.append(None)
+            url_link_clicks.append(None)
+            text.append(None)
 
     # once we are done using the string version of the IDs for the URL functionality change it back to integers for proper storage into a database/pandas dataframe
     for i in range(len(list_of_tweet_ids)):
@@ -301,16 +301,16 @@ def get_followers(following_info, headers=HEADERS, payload=PAYLOAD):
     mutal_following = []
     for following_id in following_info['id']:
         if following_id in followers_info['id']:
-            mutal_following.append('True')
+            mutal_following.append(True)
         else:
-            mutal_following.append('False')
+            mutal_following.append(False)
     following_info['mutal'] = mutal_following
     mutal_followers = []
     for followers_id in followers_info['id']:
         if followers_id in following_info['id']:
-            mutal_followers.append('True')
+            mutal_followers.append(True)
         else:
-            mutal_followers.append('False')
+            mutal_followers.append(False)
     followers_info['mutal'] = mutal_followers
     return_value = []
     return_value.append(pd.DataFrame(following_info))
