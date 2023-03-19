@@ -126,6 +126,7 @@ def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=
             list_of_tweet_ids.append(tweet['id'])
 
     # create a seperate list for every public metric
+    retweet_or_not = []
     likes = []
     views = []
     retweets = []
@@ -150,6 +151,10 @@ def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=
         reply_count = int(data['data'][0]['public_metrics']['reply_count'])
         quote_count = int(data['data'][0]['public_metrics']['quote_count'])
         individual_text = data['data'][0]['text']
+        if (like_count == 0) and (retweet_count > 1):
+            retweet_or_not.append(True)
+        else:
+            retweet_or_not.append(False) 
         if 'includes' in data:
             if 'media' in data['includes']:
                 includes_media.append(True)
@@ -176,7 +181,7 @@ def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=
         list_of_tweet_ids[i] = int(list_of_tweet_ids[i])
 
     # store public metrics into a dictionary for easy manipulation of data
-    tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'likes':likes, 'views':views, 
+    tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'is_retweet':retweet_or_not, 'likes':likes, 'views':views, 
                    'retweets':retweets, 'replys':replys, 'quotes':quotes, 
                    'includes_media':includes_media, 'media_key':media_key, 'media_views':media_views,
                     'media_type':media_type, 'created_on':dates}
@@ -192,6 +197,7 @@ def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, 
     auth = OAuth1(API_K, API_S, USER_T, TOKEN_S)
 
     # create a seperate list for every public metric
+    retweet_or_not = []
     user_profile_clicks = []
     impression_count = []
     url_link_clicks = []
@@ -205,6 +211,7 @@ def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, 
         unchecked_data = response.json()
         data = error_handling(unchecked_data, url, auth)
         if 'errors' not in data:
+            retweet_or_not.append(False)
             _user_profile_clicks = data['data']['non_public_metrics']['user_profile_clicks']
             _impression_count = data['data']['non_public_metrics']['impression_count']
             if 'url_link_clicks' in data['data']['non_public_metrics']:
@@ -216,6 +223,7 @@ def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, 
             impression_count.append(_impression_count)
             text.append(_text)
         else:
+            retweet_or_not.append(True)
             user_profile_clicks.append(None)
             impression_count.append(None)
             url_link_clicks.append(None)
@@ -226,7 +234,8 @@ def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, 
         list_of_tweet_ids[i] = int(list_of_tweet_ids[i])
 
     # store public metrics into a dictionary for easy manipulation of data
-    tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'impression_count':impression_count, 'user_profile_clicks':user_profile_clicks, 'url_link_clicks':url_link_clicks, 'created_on':dates}
+    tweets_info = {'tweet_id':list_of_tweet_ids, 'text':text, 'is_retweet':retweet_or_not, 'impression_count':impression_count, 
+                   'user_profile_clicks':user_profile_clicks, 'url_link_clicks':url_link_clicks, 'created_on':dates}
 
     return pd.DataFrame(tweets_info)
 
