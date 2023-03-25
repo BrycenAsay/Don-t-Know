@@ -35,18 +35,14 @@ class API_CALLS:
     def get_user_id(self):
         return 'https://api.twitter.com/2/users/by/username/' + self.username
     def get_tweets(self):
-        return f"https://api.twitter.com/2/users/" + self.user_id + "/tweets?tweet.fields=created_at&max_results=5" + self.pag_token
+        return f"https://api.twitter.com/2/users/" + self.user_id + "/tweets?tweet.fields=created_at&max_results=500" + self.pag_token
     def get_tweets_time_specific(self):
-        return f"https://api.twitter.com/2/users/{self.user_id}/tweets?tweet.fields=created_at&max_results=100&start_time={self.start_time}&end_time={self.end_time}"
+        return f"https://api.twitter.com/2/users/{self.user_id}/tweets?tweet.fields=created_at&max_results=500&start_time={self.start_time}&end_time={self.end_time}"
     def get_tweets_txt_likes_views(self):
         return "https://api.twitter.com/2/tweets?ids=" + self.tweet_id + "&tweet.fields=public_metrics&expansions=attachments.media_keys&media.fields=public_metrics"
     def get_private_tweet_info(self):
         return f"https://api.twitter.com/2/tweets/{self.tweet_id}?tweet.fields=non_public_metrics,organic_metrics&media.fields=non_public_metrics,organic_metrics&expansions=attachments.media_keys"
     def get_following(self):
-        return f"https://api.twitter.com/2/users/{self.user_id}/following?max_results=100" + self.pag_token
+        return f"https://api.twitter.com/2/users/{self.user_id}/following?max_results=500" + self.pag_token
     def get_followers(self):
-        return f"https://api.twitter.com/2/users/{self.user_id}/followers?max_results=100" + self.pag_token
-    def get_OAuth_Tokens(self):
-        return f'https://api.twitter.com/oauth/request_token'
-    def access_OAuth_Tokens(self):
-        return f'https://api.twitter.com/oauth/access_token?oauth_token={self.oauth_token}&oauth_verifier={self.oauth_verifier}&oauth_consumer_key={API_KEY}'
+        return f"https://api.twitter.com/2/users/{self.user_id}/followers?max_results=500" + self.pag_token
