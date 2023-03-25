@@ -5,8 +5,7 @@ import time
 from sqlalchemy import create_engine
 import logging
 logging.basicConfig(level=logging.DEBUG)
-from IPython.display import display
-from API_Calls import API_CALLS, OAUTH_ACCESS_TOKENS_HEADERS, HEADERS, PAYLOAD
+from API_Calls import API_CALLS, HEADERS, PAYLOAD
 from config import _USERNAME, API_KEY, API_SECRET, USER, HOST, PASSWORD, DATABASE
 from requests_oauthlib import OAuth1
 
@@ -23,34 +22,6 @@ def error_handling(_data, _url, _headers=False, _auth=False):
                 return _response.json()
     else:
         return _data
-
-def get_OAuth_Tokens(payload=PAYLOAD, url = API_CALLS().get_OAuth_Tokens()):
-    # retrives OAuth Tokens
-    O_Auth_Tokens = {}
-    auth = OAuth1(API_KEY, API_SECRET)
-    response = requests.request("POST", url, auth=auth, data=payload)
-    data = response.text
-    O_Auth_Tokens['OAuth_Token'] = data[12:39]
-    O_Auth_Tokens['OAuth_Secret'] = data[59:91]
-    print('The user must visit THIS URL for Authorization purposes: ' + 'https://api.twitter.com/oauth/authorize?oauth_token=' + O_Auth_Tokens['OAuth_Token'])
-    O_Auth_Verifier = input('Look in the URL for the verifier and enter here: ')
-    O_Auth_Tokens['OAuth_Verifier'] = O_Auth_Verifier
-    return O_Auth_Tokens
-
-def Access_Token(O_AUTH_TOKENS, headers=OAUTH_ACCESS_TOKENS_HEADERS, payload=PAYLOAD):
-    # accesses user OAuth tokens
-    user_OAuth_Creds = {}
-    url = API_CALLS(oauth_token=O_AUTH_TOKENS['OAuth_Token'], oauth_verifier=O_AUTH_TOKENS['OAuth_Verifier']).access_OAuth_Tokens()
-    response = requests.request("POST", url, headers=headers, data=payload)
-    data = (response.text).split('&')
-    for i in range(len(data)):
-        seperated_data = data[i].split('=')
-        data[i] = seperated_data[1]
-    user_OAuth_Creds['user_oauth_token'] = data[0]
-    user_OAuth_Creds['user_oauth_secret'] = data[1]
-    user_OAuth_Creds['user_id'] = data[2]
-    user_OAuth_Creds['screen_name'] = data[3]
-    return user_OAuth_Creds
 
 def token_retrieval():
     # retrives user OAuth tokens for getting private metrics from SQL table
@@ -151,7 +122,7 @@ def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=
         reply_count = int(data['data'][0]['public_metrics']['reply_count'])
         quote_count = int(data['data'][0]['public_metrics']['quote_count'])
         individual_text = data['data'][0]['text']
-        if (like_count == 0) and (retweet_count > 1):
+        if individual_text[0:2] == 'RT':
             retweet_or_not.append(True)
         else:
             retweet_or_not.append(False) 
