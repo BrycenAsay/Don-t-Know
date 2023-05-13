@@ -72,7 +72,7 @@ def main():
         DATA.append(str(User_OAuth_Tokens[key]))
     engine = create_engine(f'mysql+pymysql://{USER}:{PASSWORD}@{HOST}/{DATABASE}')
     with engine.connect() as conn:
-        sql = create_row('twitter_info.User_OAuth_Info', COLUMNS, DATA)
+        sql = create_row('User_OAuth_Info', COLUMNS, DATA)
         try:
             conn.execute(sql)
             conn.commit()
