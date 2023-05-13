@@ -1,3 +1,7 @@
+"""
+This file exists to automate the OAuth handshake process by having a user sign in using their twitter credentials
+And then saves those credentials into a table that can be read from the main file to get private metrics for a compliant user
+"""
 from config import API_KEY, API_SECRET, USER, PASSWORD, HOST, DATABASE
 from requests_oauthlib import OAuth1
 from sqlalchemy import create_engine, text
