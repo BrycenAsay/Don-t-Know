@@ -158,7 +158,7 @@ def get_tweet_info(_user_id, list_of_tweets, pre_retrived_dates, headers=HEADERS
                     'media_type':media_type, 'created_on':dates}
     return pd.DataFrame(tweets_info)
 
-def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, API_K=API_KEY, API_S=API_SECRET, payload=PAYLOAD):
+def get_private_tweet_info(_user_id, list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, API_K=API_KEY, API_S=API_SECRET, payload=PAYLOAD):
     # create a list of tweet_ids so that when can iterate through them that way
     list_of_tweet_ids = []
     for group_of_tweets in list_of_tweets:
@@ -177,7 +177,7 @@ def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, 
 
     # this will iterate through all the tweets and append the views, likes, and text metrics
     for TWEET_ID in list_of_tweet_ids:
-        url = API_CALLS(_USERNAME, USER_ID, TWEET_ID).get_private_tweet_info()
+        url = API_CALLS(_USERNAME, _user_id, TWEET_ID).get_private_tweet_info()
         response = requests.request("GET", url, auth=auth, data=payload)
         unchecked_data = response.json()
         data = error_handling(unchecked_data, url, auth)
@@ -210,10 +210,10 @@ def get_private_tweet_info(list_of_tweets, pre_retrived_dates, USER_T, TOKEN_S, 
 
     return pd.DataFrame(tweets_info)
 
-def get_following(headers=HEADERS, payload=PAYLOAD):
+def get_following(_user_id, headers=HEADERS, payload=PAYLOAD):
     # retrives a list of users the specified user is following
     next_token_list = ['']
-    url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_following()
+    url = API_CALLS(username=_USERNAME, user_id=_user_id, pag_token=next_token_list[-1]).get_following()
     list_of_following = []
     list_of_ids = []
     list_of_names = []
@@ -239,14 +239,14 @@ def get_following(headers=HEADERS, payload=PAYLOAD):
                 list_of_names.append(tweet['name'])
                 list_of_usernames.append(tweet['username'])
             next_token_list.append("&pagination_token=" + data['meta']['next_token'])
-            url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_following()
+            url = API_CALLS(username=_USERNAME, user_id=_user_id, pag_token=next_token_list[-1]).get_following()
     following_info = {'id': list_of_ids, 'name': list_of_names, 'username': list_of_usernames}
     return following_info
 
-def get_followers(following_info, headers=HEADERS, payload=PAYLOAD):
+def get_followers(_user_id, following_info, headers=HEADERS, payload=PAYLOAD):
     # define next_token_list to store pagination tokens for paginating purposes, also empty lists for data needing to be stored
     next_token_list = ['']
-    url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_followers()
+    url = API_CALLS(username=_USERNAME, user_id=_user_id, pag_token=next_token_list[-1]).get_followers()
     list_of_following = []
     list_of_ids = []
     list_of_names = []
@@ -274,7 +274,7 @@ def get_followers(following_info, headers=HEADERS, payload=PAYLOAD):
                 list_of_names.append(tweet['name'])
                 list_of_usernames.append(tweet['username'])
             next_token_list.append("&pagination_token=" + data['meta']['next_token'])
-            url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_followers()
+            url = API_CALLS(username=_USERNAME, user_id=_user_id, pag_token=next_token_list[-1]).get_followers()
     followers_info = {'id': list_of_ids, 'name': list_of_names, 'username': list_of_usernames}
 
     # create a mutal following list that will either append true or false depending on if a given user is both a follower and you are following
