@@ -24,5 +24,12 @@ For virtually every file there is a config.py file depency. Since I obviously do
 ### Note on OAuth.py File
 To have the credentials update into the database without throwing an error, the file requires you already have a table in your database named 'User_OAuth_Info' with the rows 'user_oauth_token', 'user_oauth_secret', 'user_id', and 'screen_name'; it can be empty
 
+### Note on data_processing.py File
+The data_processing file only works if you:
++ a) Use exculsively the files in this project to collect all of your twitter data
++ b) Alter the code so that it selects from your tables instead of the ones the files would have otherwise created for you
++ c) Name all of your tables in a way that works for this file
+Also another good thing to note is that this is mostly just for processing data for public metrics.
+
 ### Note on SQLAlchemy Connection
-I have the SQLAlchemy connection using a mysql driver, which means that unless otherweise configured only mysql databases will work. It can be configured differently if desired, but the original code is only compatiable with mysql databases
+I have the SQLAlchemy connection using a mysql driver, which means that unless otherweise configured only mysql databases will work. It can be configured differently if desired, but the original code is only compatible with mysql database
