@@ -1,7 +1,7 @@
-from API_Funcs import get_OAuth_Tokens, Access_Token
-from config import API_KEY, API_SECRET
+from config import API_KEY, API_SECRET, USER, PASSWORD, HOST, DATABASE
 from requests_oauthlib import OAuth1
-import simple_sql
+from sqlalchemy import create_engine, text
+import logging
 import requests
 
 # Part where we define nessicary variables when making an API call
@@ -44,11 +44,17 @@ def Access_Token(O_AUTH_TOKENS, headers=OAUTH_ACCESS_TOKENS_HEADERS, payload=PAY
     for i in range(len(data)):
         seperated_data = data[i].split('=')
         data[i] = seperated_data[1]
-    user_OAuth_Creds['user_oauth_token'] = data[0]
-    user_OAuth_Creds['user_oauth_secret'] = data[1]
+    user_OAuth_Creds['user_oauth_token'] = "'" + data[0] + "'"
+    user_OAuth_Creds['user_oauth_secret'] = "'" + data[1] + "'"
     user_OAuth_Creds['user_id'] = data[2]
-    user_OAuth_Creds['screen_name'] = data[3]
+    user_OAuth_Creds['screen_name'] = "'" + data[3] + "'"
     return user_OAuth_Creds
+
+def create_row(table_name, columns, data):
+    columns = ','.join(columns)
+    data = ','.join(data)
+    query = text(f'INSERT INTO {table_name}({columns}) VALUES ({data});')
+    return query
 
 # where all the files run from
 def main():
@@ -60,7 +66,16 @@ def main():
     for key in User_OAuth_Tokens:
         COLUMNS.append(key)
         DATA.append(str(User_OAuth_Tokens[key]))
-    print("Use this SQL statement to insert the data into the User_OAuth_Info table: " + simple_sql.create_row('twitter_info.User_OAuth_Info', COLUMNS, DATA))
+    engine = create_engine(f'mysql+pymysql://{USER}:{PASSWORD}@{HOST}/{DATABASE}')
+    with engine.connect() as conn:
+        sql = create_row('twitter_info.User_OAuth_Info', COLUMNS, DATA)
+        try:
+            conn.execute(sql)
+            conn.commit()
+        except Exception as e:
+            logging.error('did not work: ', e)
+            conn.rollback()
+        conn.close()
         
 if __name__ == '__main__':
     main()
