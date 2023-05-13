@@ -19,3 +19,10 @@ For virtually every file there is a config.py file depency. Since I obviously do
 + PASSWORD = {the password for said user/database}
 + DATABASE = {the database you want to use to store all of the tables}
 + \_USERNAME = {the usernames you want to collect data from, inside of a list (ex: \['jeremy'] or \['hello234', 'lizzyg35', 'usnewstoday'])}
+
+
+### Note on OAuth.py File
+To have the credentials update into the database without throwing an error, the file requires you already have a table in your database named 'User_OAuth_Info' with the rows 'user_oauth_token', 'user_oauth_secret', 'user_id', and 'screen_name'; it can be empty
+
+### Note on SQLAlchemy Connection
+I have the SQLAlchemy connection using a mysql driver, which means that unless otherweise configured only mysql databases will work. It can be configured differently if desired, but the original code is only compatiable with mysql databases
