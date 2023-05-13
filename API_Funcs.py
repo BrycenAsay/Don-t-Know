@@ -46,7 +46,7 @@ def token_retrieval():
     user_oauth_secret = User_Auth['user_oauth_secret'][users_number_id]
     return user_oauth_token, user_oauth_secret
 
-def get_user_id(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=_USERNAME).get_user_id()):
+def get_user_id(url, headers=HEADERS, payload=PAYLOAD):
     # retrives the user_id given a username
     response = requests.request("GET", url, headers=headers, data=payload)
     unchecked_data = response.json()
@@ -55,15 +55,14 @@ def get_user_id(headers=HEADERS, payload=PAYLOAD, url = API_CALLS(username=_USER
     return user_id
 
 # global variables for user_id and pagination tokens used by functions below
-USER_ID = get_user_id()
 next_token_list = ['']
 
-def get_tweets(headers=HEADERS, payload=PAYLOAD, time_specific=False):
+def get_tweets(_user_id, headers=HEADERS, payload=PAYLOAD, time_specific=False):
     # retrives a list of tweets for a given user, you can choose the past 30 days or all tweets depending on wether you are getting public or private metrics
     if time_specific:
-        url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_tweets_time_specific()
+        url = API_CALLS(username=_USERNAME, user_id=_user_id, pag_token=next_token_list[-1]).get_tweets_time_specific()
     else:
-        url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_tweets()
+        url = API_CALLS(username=_USERNAME, user_id=_user_id, pag_token=next_token_list[-1]).get_tweets()
     list_of_tweets = []
     list_of_dates = []
     next_token_exists = True
@@ -71,6 +70,7 @@ def get_tweets(headers=HEADERS, payload=PAYLOAD, time_specific=False):
         response = requests.request("GET", url, headers=headers, data=payload)
         unchecked_data = response.json()
         data = error_handling(unchecked_data, url, headers)
+        print(data)
         if 'next_token' not in data['meta']:
             if data['meta']['result_count'] != 0:
                 list_of_tweets.append(data['data'])
@@ -85,11 +85,11 @@ def get_tweets(headers=HEADERS, payload=PAYLOAD, time_specific=False):
             for tweet in group_of_tweets:
                 list_of_dates.append(tweet['created_at'])
             next_token_list.append("&pagination_token=" + data['meta']['next_token'])
-            url = API_CALLS(username=_USERNAME, user_id=USER_ID, pag_token=next_token_list[-1]).get_tweets()
+            url = API_CALLS(username=_USERNAME, user_id=_user_id, pag_token=next_token_list[-1]).get_tweets()
     return list_of_tweets, list_of_dates
 
 # retrives some public metrics on the list of tweets from a given user
-def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=PAYLOAD):
+def get_tweet_info(_user_id, list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=PAYLOAD):
     # create a list of tweet_ids so that when can iterate through them that way
     list_of_tweet_ids = []
     for group_of_tweets in list_of_tweets:
@@ -112,7 +112,7 @@ def get_tweet_info(list_of_tweets, pre_retrived_dates, headers=HEADERS, payload=
 
     # this will iterate through all the tweets and append the views, likes, and text metrics
     for TWEET_ID in list_of_tweet_ids:
-        url = API_CALLS(_USERNAME, USER_ID, TWEET_ID).get_tweets_txt_likes_views()
+        url = API_CALLS(_USERNAME, _user_id, TWEET_ID).get_tweets_txt_likes_views()
         response = requests.request("GET", url, headers=headers, data=payload)
         unchecked_data = response.json()
         data = error_handling(unchecked_data, url, headers)
