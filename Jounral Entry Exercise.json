@@ -1,0 +1,3202 @@
+[
+	{
+		"index" : 1,
+		"state" : "AL",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 23.6
+	},
+	{
+		"index" : 2,
+		"state" : "AK",
+		"gun_law_strength" : "41",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 23.5
+	},
+	{
+		"index" : 3,
+		"state" : "AZ",
+		"gun_law_strength" : "42",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 16.7
+	},
+	{
+		"index" : 4,
+		"state" : "AR",
+		"gun_law_strength" : "50",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 22.6
+	},
+	{
+		"index" : 5,
+		"state" : "CA",
+		"gun_law_strength" : "1",
+		"grade" : "A",
+		"year" : 2020,
+		"rate" : 8.5
+	},
+	{
+		"index" : 6,
+		"state" : "CO",
+		"gun_law_strength" : "14",
+		"grade" : "B",
+		"year" : 2020,
+		"rate" : 15.4
+	},
+	{
+		"index" : 7,
+		"state" : "CT",
+		"gun_law_strength" : "3",
+		"grade" : "A-",
+		"year" : 2020,
+		"rate" : 6
+	},
+	{
+		"index" : 8,
+		"state" : "DE",
+		"gun_law_strength" : "13",
+		"grade" : "B",
+		"year" : 2020,
+		"rate" : 14.4
+	},
+	{
+		"index" : 9,
+		"state" : "FL",
+		"gun_law_strength" : "23",
+		"grade" : "C-",
+		"year" : 2020,
+		"rate" : 13.7
+	},
+	{
+		"index" : 10,
+		"state" : "GA",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 17.7
+	},
+	{
+		"index" : 11,
+		"state" : "HI",
+		"gun_law_strength" : "5",
+		"grade" : "A-",
+		"year" : 2020,
+		"rate" : 3.4
+	},
+	{
+		"index" : 12,
+		"state" : "ID",
+		"gun_law_strength" : "48",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 17.6
+	},
+	{
+		"index" : 13,
+		"state" : "IL",
+		"gun_law_strength" : "8",
+		"grade" : "A-",
+		"year" : 2020,
+		"rate" : 14.1
+	},
+	{
+		"index" : 14,
+		"state" : "IN",
+		"gun_law_strength" : "29",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 17.3
+	},
+	{
+		"index" : 15,
+		"state" : "IA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 11.2
+	},
+	{
+		"index" : 16,
+		"state" : "KS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 16.9
+	},
+	{
+		"index" : 17,
+		"state" : "KY",
+		"gun_law_strength" : "43",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 20.1
+	},
+	{
+		"index" : 18,
+		"state" : "LA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 26.3
+	},
+	{
+		"index" : 19,
+		"state" : "ME",
+		"gun_law_strength" : "27",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 10.4
+	},
+	{
+		"index" : 20,
+		"state" : "MD",
+		"gun_law_strength" : "7",
+		"grade" : "A-",
+		"year" : 2020,
+		"rate" : 13.5
+	},
+	{
+		"index" : 21,
+		"state" : "MA",
+		"gun_law_strength" : "6",
+		"grade" : "A-",
+		"year" : 2020,
+		"rate" : 3.7
+	},
+	{
+		"index" : 22,
+		"state" : "MI",
+		"gun_law_strength" : "16",
+		"grade" : "C+",
+		"year" : 2020,
+		"rate" : 14.6
+	},
+	{
+		"index" : 23,
+		"state" : "MN",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2020,
+		"rate" : 8.9
+	},
+	{
+		"index" : 24,
+		"state" : "MS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 28.6
+	},
+	{
+		"index" : 25,
+		"state" : "MO",
+		"gun_law_strength" : "47",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 23.9
+	},
+	{
+		"index" : 26,
+		"state" : "MT",
+		"gun_law_strength" : "40",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 20.9
+	},
+	{
+		"index" : 27,
+		"state" : "NE",
+		"gun_law_strength" : "20",
+		"grade" : "C",
+		"year" : 2020,
+		"rate" : 10.1
+	},
+	{
+		"index" : 28,
+		"state" : "NV",
+		"gun_law_strength" : "17",
+		"grade" : "C+",
+		"year" : 2020,
+		"rate" : 17
+	},
+	{
+		"index" : 29,
+		"state" : "NH",
+		"gun_law_strength" : "26",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 8.9
+	},
+	{
+		"index" : 30,
+		"state" : "NJ",
+		"gun_law_strength" : "2",
+		"grade" : "A",
+		"year" : 2020,
+		"rate" : 5
+	},
+	{
+		"index" : 31,
+		"state" : "NM",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2020,
+		"rate" : 22.7
+	},
+	{
+		"index" : 32,
+		"state" : "NY",
+		"gun_law_strength" : "4",
+		"grade" : "A-",
+		"year" : 2020,
+		"rate" : 5.3
+	},
+	{
+		"index" : 33,
+		"state" : "NC",
+		"gun_law_strength" : "21",
+		"grade" : "C",
+		"year" : 2020,
+		"rate" : 16
+	},
+	{
+		"index" : 34,
+		"state" : "ND",
+		"gun_law_strength" : "37",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 13.8
+	},
+	{
+		"index" : 35,
+		"state" : "OH",
+		"gun_law_strength" : "25",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 15.2
+	},
+	{
+		"index" : 36,
+		"state" : "OK",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 20.7
+	},
+	{
+		"index" : 37,
+		"state" : "OR",
+		"gun_law_strength" : "11",
+		"grade" : "B+",
+		"year" : 2020,
+		"rate" : 13
+	},
+	{
+		"index" : 38,
+		"state" : "PA",
+		"gun_law_strength" : "15",
+		"grade" : "B-",
+		"year" : 2020,
+		"rate" : 13.6
+	},
+	{
+		"index" : 39,
+		"state" : "RI",
+		"gun_law_strength" : "9",
+		"grade" : "B+",
+		"year" : 2020,
+		"rate" : 5.1
+	},
+	{
+		"index" : 40,
+		"state" : "SC",
+		"gun_law_strength" : "28",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 22
+	},
+	{
+		"index" : 41,
+		"state" : "SD",
+		"gun_law_strength" : "44",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 13.6
+	},
+	{
+		"index" : 42,
+		"state" : "TN",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 21.3
+	},
+	{
+		"index" : 43,
+		"state" : "TX",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 14.2
+	},
+	{
+		"index" : 44,
+		"state" : "UT",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 13.6
+	},
+	{
+		"index" : 45,
+		"state" : "VT",
+		"gun_law_strength" : "22",
+		"grade" : "C-",
+		"year" : 2020,
+		"rate" : 11.6
+	},
+	{
+		"index" : 46,
+		"state" : "VA",
+		"gun_law_strength" : "12",
+		"grade" : "B",
+		"year" : 2020,
+		"rate" : 13.4
+	},
+	{
+		"index" : 47,
+		"state" : "WA",
+		"gun_law_strength" : "10",
+		"grade" : "B+",
+		"year" : 2020,
+		"rate" : 10.9
+	},
+	{
+		"index" : 48,
+		"state" : "WV",
+		"gun_law_strength" : "36",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 18.1
+	},
+	{
+		"index" : 49,
+		"state" : "WI",
+		"gun_law_strength" : "24",
+		"grade" : "D+",
+		"year" : 2020,
+		"rate" : 12.2
+	},
+	{
+		"index" : 50,
+		"state" : "WY",
+		"gun_law_strength" : "49",
+		"grade" : "F",
+		"year" : 2020,
+		"rate" : 25.9
+	},
+	{
+		"index" : 51,
+		"state" : "AL",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 22.2
+	},
+	{
+		"index" : 52,
+		"state" : "AK",
+		"gun_law_strength" : "41",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 24.4
+	},
+	{
+		"index" : 53,
+		"state" : "AZ",
+		"gun_law_strength" : "42",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 15.1
+	},
+	{
+		"index" : 54,
+		"state" : "AR",
+		"gun_law_strength" : "50",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 19.3
+	},
+	{
+		"index" : 55,
+		"state" : "CA",
+		"gun_law_strength" : "1",
+		"grade" : "A",
+		"year" : 2019,
+		"rate" : 7.2
+	},
+	{
+		"index" : 56,
+		"state" : "CO",
+		"gun_law_strength" : "14",
+		"grade" : "B",
+		"year" : 2019,
+		"rate" : 14.2
+	},
+	{
+		"index" : 57,
+		"state" : "CT",
+		"gun_law_strength" : "3",
+		"grade" : "A-",
+		"year" : 2019,
+		"rate" : 5.3
+	},
+	{
+		"index" : 58,
+		"state" : "DE",
+		"gun_law_strength" : "13",
+		"grade" : "B",
+		"year" : 2019,
+		"rate" : 9.9
+	},
+	{
+		"index" : 59,
+		"state" : "FL",
+		"gun_law_strength" : "23",
+		"grade" : "C-",
+		"year" : 2019,
+		"rate" : 12.7
+	},
+	{
+		"index" : 60,
+		"state" : "GA",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 15.8
+	},
+	{
+		"index" : 61,
+		"state" : "HI",
+		"gun_law_strength" : "5",
+		"grade" : "A-",
+		"year" : 2019,
+		"rate" : 4.4
+	},
+	{
+		"index" : 62,
+		"state" : "ID",
+		"gun_law_strength" : "48",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 14.2
+	},
+	{
+		"index" : 63,
+		"state" : "IL",
+		"gun_law_strength" : "8",
+		"grade" : "A-",
+		"year" : 2019,
+		"rate" : 10.8
+	},
+	{
+		"index" : 64,
+		"state" : "IN",
+		"gun_law_strength" : "29",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 14.1
+	},
+	{
+		"index" : 65,
+		"state" : "IA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 9.1
+	},
+	{
+		"index" : 66,
+		"state" : "KS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 13.7
+	},
+	{
+		"index" : 67,
+		"state" : "KY",
+		"gun_law_strength" : "43",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 14.9
+	},
+	{
+		"index" : 68,
+		"state" : "LA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 22.1
+	},
+	{
+		"index" : 69,
+		"state" : "ME",
+		"gun_law_strength" : "27",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 11.5
+	},
+	{
+		"index" : 70,
+		"state" : "MD",
+		"gun_law_strength" : "7",
+		"grade" : "A-",
+		"year" : 2019,
+		"rate" : 12.6
+	},
+	{
+		"index" : 71,
+		"state" : "MA",
+		"gun_law_strength" : "6",
+		"grade" : "A-",
+		"year" : 2019,
+		"rate" : 3.4
+	},
+	{
+		"index" : 72,
+		"state" : "MI",
+		"gun_law_strength" : "16",
+		"grade" : "C+",
+		"year" : 2019,
+		"rate" : 12.1
+	},
+	{
+		"index" : 73,
+		"state" : "MN",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2019,
+		"rate" : 8.1
+	},
+	{
+		"index" : 74,
+		"state" : "MS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 24.2
+	},
+	{
+		"index" : 75,
+		"state" : "MO",
+		"gun_law_strength" : "47",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 20.6
+	},
+	{
+		"index" : 76,
+		"state" : "MT",
+		"gun_law_strength" : "40",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 19
+	},
+	{
+		"index" : 77,
+		"state" : "NE",
+		"gun_law_strength" : "20",
+		"grade" : "C",
+		"year" : 2019,
+		"rate" : 10.4
+	},
+	{
+		"index" : 78,
+		"state" : "NV",
+		"gun_law_strength" : "17",
+		"grade" : "C+",
+		"year" : 2019,
+		"rate" : 15.3
+	},
+	{
+		"index" : 79,
+		"state" : "NH",
+		"gun_law_strength" : "26",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 10.7
+	},
+	{
+		"index" : 80,
+		"state" : "NJ",
+		"gun_law_strength" : "2",
+		"grade" : "A",
+		"year" : 2019,
+		"rate" : 4.1
+	},
+	{
+		"index" : 81,
+		"state" : "NM",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2019,
+		"rate" : 22.3
+	},
+	{
+		"index" : 82,
+		"state" : "NY",
+		"gun_law_strength" : "4",
+		"grade" : "A-",
+		"year" : 2019,
+		"rate" : 3.9
+	},
+	{
+		"index" : 83,
+		"state" : "NC",
+		"gun_law_strength" : "21",
+		"grade" : "C",
+		"year" : 2019,
+		"rate" : 13.1
+	},
+	{
+		"index" : 84,
+		"state" : "ND",
+		"gun_law_strength" : "37",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 12.4
+	},
+	{
+		"index" : 85,
+		"state" : "OH",
+		"gun_law_strength" : "25",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 13.3
+	},
+	{
+		"index" : 86,
+		"state" : "OK",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 18.6
+	},
+	{
+		"index" : 87,
+		"state" : "OR",
+		"gun_law_strength" : "11",
+		"grade" : "B+",
+		"year" : 2019,
+		"rate" : 12.6
+	},
+	{
+		"index" : 88,
+		"state" : "PA",
+		"gun_law_strength" : "15",
+		"grade" : "B-",
+		"year" : 2019,
+		"rate" : 11.7
+	},
+	{
+		"index" : 89,
+		"state" : "RI",
+		"gun_law_strength" : "9",
+		"grade" : "B+",
+		"year" : 2019,
+		"rate" : 4.6
+	},
+	{
+		"index" : 90,
+		"state" : "SC",
+		"gun_law_strength" : "28",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 19.9
+	},
+	{
+		"index" : 91,
+		"state" : "SD",
+		"gun_law_strength" : "44",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 13.1
+	},
+	{
+		"index" : 92,
+		"state" : "TN",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 18.4
+	},
+	{
+		"index" : 93,
+		"state" : "TX",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 12.7
+	},
+	{
+		"index" : 94,
+		"state" : "UT",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 12.8
+	},
+	{
+		"index" : 95,
+		"state" : "VT",
+		"gun_law_strength" : "22",
+		"grade" : "C-",
+		"year" : 2019,
+		"rate" : 9.3
+	},
+	{
+		"index" : 96,
+		"state" : "VA",
+		"gun_law_strength" : "12",
+		"grade" : "B",
+		"year" : 2019,
+		"rate" : 11.7
+	},
+	{
+		"index" : 97,
+		"state" : "WA",
+		"gun_law_strength" : "10",
+		"grade" : "B+",
+		"year" : 2019,
+		"rate" : 10.7
+	},
+	{
+		"index" : 98,
+		"state" : "WV",
+		"gun_law_strength" : "36",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 16.6
+	},
+	{
+		"index" : 99,
+		"state" : "WI",
+		"gun_law_strength" : "24",
+		"grade" : "D+",
+		"year" : 2019,
+		"rate" : 10
+	},
+	{
+		"index" : 100,
+		"state" : "WY",
+		"gun_law_strength" : "49",
+		"grade" : "F",
+		"year" : 2019,
+		"rate" : 22.3
+	},
+	{
+		"index" : 101,
+		"state" : "AL",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 21.8
+	},
+	{
+		"index" : 102,
+		"state" : "AK",
+		"gun_law_strength" : "41",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 21
+	},
+	{
+		"index" : 103,
+		"state" : "AZ",
+		"gun_law_strength" : "42",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 15.3
+	},
+	{
+		"index" : 104,
+		"state" : "AR",
+		"gun_law_strength" : "50",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 18.9
+	},
+	{
+		"index" : 105,
+		"state" : "CA",
+		"gun_law_strength" : "1",
+		"grade" : "A",
+		"year" : 2018,
+		"rate" : 7.5
+	},
+	{
+		"index" : 106,
+		"state" : "CO",
+		"gun_law_strength" : "14",
+		"grade" : "B",
+		"year" : 2018,
+		"rate" : 15.2
+	},
+	{
+		"index" : 107,
+		"state" : "CT",
+		"gun_law_strength" : "3",
+		"grade" : "A-",
+		"year" : 2018,
+		"rate" : 4.9
+	},
+	{
+		"index" : 108,
+		"state" : "DE",
+		"gun_law_strength" : "13",
+		"grade" : "B",
+		"year" : 2018,
+		"rate" : 11.6
+	},
+	{
+		"index" : 109,
+		"state" : "FL",
+		"gun_law_strength" : "23",
+		"grade" : "C-",
+		"year" : 2018,
+		"rate" : 12.9
+	},
+	{
+		"index" : 110,
+		"state" : "GA",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 15.7
+	},
+	{
+		"index" : 111,
+		"state" : "HI",
+		"gun_law_strength" : "5",
+		"grade" : "A-",
+		"year" : 2018,
+		"rate" : 4
+	},
+	{
+		"index" : 112,
+		"state" : "ID",
+		"gun_law_strength" : "48",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 16.6
+	},
+	{
+		"index" : 113,
+		"state" : "IL",
+		"gun_law_strength" : "8",
+		"grade" : "A-",
+		"year" : 2018,
+		"rate" : 10.9
+	},
+	{
+		"index" : 114,
+		"state" : "IN",
+		"gun_law_strength" : "29",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 14.7
+	},
+	{
+		"index" : 115,
+		"state" : "IA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 8.7
+	},
+	{
+		"index" : 116,
+		"state" : "KS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 14.8
+	},
+	{
+		"index" : 117,
+		"state" : "KY",
+		"gun_law_strength" : "43",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 16.9
+	},
+	{
+		"index" : 118,
+		"state" : "LA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 21.4
+	},
+	{
+		"index" : 119,
+		"state" : "ME",
+		"gun_law_strength" : "27",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 10.3
+	},
+	{
+		"index" : 120,
+		"state" : "MD",
+		"gun_law_strength" : "7",
+		"grade" : "A-",
+		"year" : 2018,
+		"rate" : 11.7
+	},
+	{
+		"index" : 121,
+		"state" : "MA",
+		"gun_law_strength" : "6",
+		"grade" : "A-",
+		"year" : 2018,
+		"rate" : 3.5
+	},
+	{
+		"index" : 122,
+		"state" : "MI",
+		"gun_law_strength" : "16",
+		"grade" : "C+",
+		"year" : 2018,
+		"rate" : 12.9
+	},
+	{
+		"index" : 123,
+		"state" : "MN",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2018,
+		"rate" : 7.8
+	},
+	{
+		"index" : 124,
+		"state" : "MS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 22.9
+	},
+	{
+		"index" : 125,
+		"state" : "MO",
+		"gun_law_strength" : "47",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 21.5
+	},
+	{
+		"index" : 126,
+		"state" : "MT",
+		"gun_law_strength" : "40",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 17.3
+	},
+	{
+		"index" : 127,
+		"state" : "NE",
+		"gun_law_strength" : "20",
+		"grade" : "C",
+		"year" : 2018,
+		"rate" : 9
+	},
+	{
+		"index" : 128,
+		"state" : "NV",
+		"gun_law_strength" : "17",
+		"grade" : "C+",
+		"year" : 2018,
+		"rate" : 17.9
+	},
+	{
+		"index" : 129,
+		"state" : "NH",
+		"gun_law_strength" : "26",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 10.8
+	},
+	{
+		"index" : 130,
+		"state" : "NJ",
+		"gun_law_strength" : "2",
+		"grade" : "A",
+		"year" : 2018,
+		"rate" : 4.8
+	},
+	{
+		"index" : 131,
+		"state" : "NM",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2018,
+		"rate" : 20.7
+	},
+	{
+		"index" : 132,
+		"state" : "NY",
+		"gun_law_strength" : "4",
+		"grade" : "A-",
+		"year" : 2018,
+		"rate" : 4.1
+	},
+	{
+		"index" : 133,
+		"state" : "NC",
+		"gun_law_strength" : "21",
+		"grade" : "C",
+		"year" : 2018,
+		"rate" : 13.3
+	},
+	{
+		"index" : 134,
+		"state" : "ND",
+		"gun_law_strength" : "37",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 11.5
+	},
+	{
+		"index" : 135,
+		"state" : "OH",
+		"gun_law_strength" : "25",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 13.1
+	},
+	{
+		"index" : 136,
+		"state" : "OK",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 16.8
+	},
+	{
+		"index" : 137,
+		"state" : "OR",
+		"gun_law_strength" : "11",
+		"grade" : "B+",
+		"year" : 2018,
+		"rate" : 11.7
+	},
+	{
+		"index" : 138,
+		"state" : "PA",
+		"gun_law_strength" : "15",
+		"grade" : "B-",
+		"year" : 2018,
+		"rate" : 12.5
+	},
+	{
+		"index" : 139,
+		"state" : "RI",
+		"gun_law_strength" : "9",
+		"grade" : "B+",
+		"year" : 2018,
+		"rate" : 3.3
+	},
+	{
+		"index" : 140,
+		"state" : "SC",
+		"gun_law_strength" : "28",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 17.6
+	},
+	{
+		"index" : 141,
+		"state" : "SD",
+		"gun_law_strength" : "44",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 13.6
+	},
+	{
+		"index" : 142,
+		"state" : "TN",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 17.8
+	},
+	{
+		"index" : 143,
+		"state" : "TX",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 12.2
+	},
+	{
+		"index" : 144,
+		"state" : "UT",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 13.2
+	},
+	{
+		"index" : 145,
+		"state" : "VT",
+		"gun_law_strength" : "22",
+		"grade" : "C-",
+		"year" : 2018,
+		"rate" : 12.8
+	},
+	{
+		"index" : 146,
+		"state" : "VA",
+		"gun_law_strength" : "12",
+		"grade" : "B",
+		"year" : 2018,
+		"rate" : 11.8
+	},
+	{
+		"index" : 147,
+		"state" : "WA",
+		"gun_law_strength" : "10",
+		"grade" : "B+",
+		"year" : 2018,
+		"rate" : 10.4
+	},
+	{
+		"index" : 148,
+		"state" : "WV",
+		"gun_law_strength" : "36",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 18.2
+	},
+	{
+		"index" : 149,
+		"state" : "WI",
+		"gun_law_strength" : "24",
+		"grade" : "D+",
+		"year" : 2018,
+		"rate" : 10.1
+	},
+	{
+		"index" : 150,
+		"state" : "WY",
+		"gun_law_strength" : "49",
+		"grade" : "F",
+		"year" : 2018,
+		"rate" : 21.5
+	},
+	{
+		"index" : 151,
+		"state" : "AL",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 22.9
+	},
+	{
+		"index" : 152,
+		"state" : "AK",
+		"gun_law_strength" : "41",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 24.5
+	},
+	{
+		"index" : 153,
+		"state" : "AZ",
+		"gun_law_strength" : "42",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 15.8
+	},
+	{
+		"index" : 154,
+		"state" : "AR",
+		"gun_law_strength" : "50",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 20.3
+	},
+	{
+		"index" : 155,
+		"state" : "CA",
+		"gun_law_strength" : "1",
+		"grade" : "A",
+		"year" : 2017,
+		"rate" : 7.9
+	},
+	{
+		"index" : 156,
+		"state" : "CO",
+		"gun_law_strength" : "14",
+		"grade" : "B",
+		"year" : 2017,
+		"rate" : 13.4
+	},
+	{
+		"index" : 157,
+		"state" : "CT",
+		"gun_law_strength" : "3",
+		"grade" : "A-",
+		"year" : 2017,
+		"rate" : 5.1
+	},
+	{
+		"index" : 158,
+		"state" : "DE",
+		"gun_law_strength" : "13",
+		"grade" : "B",
+		"year" : 2017,
+		"rate" : 11.7
+	},
+	{
+		"index" : 159,
+		"state" : "FL",
+		"gun_law_strength" : "23",
+		"grade" : "C-",
+		"year" : 2017,
+		"rate" : 12.4
+	},
+	{
+		"index" : 160,
+		"state" : "GA",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 15.4
+	},
+	{
+		"index" : 161,
+		"state" : "HI",
+		"gun_law_strength" : "5",
+		"grade" : "A-",
+		"year" : 2017,
+		"rate" : 2.5
+	},
+	{
+		"index" : 162,
+		"state" : "ID",
+		"gun_law_strength" : "48",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 16.4
+	},
+	{
+		"index" : 163,
+		"state" : "IL",
+		"gun_law_strength" : "8",
+		"grade" : "A-",
+		"year" : 2017,
+		"rate" : 12.1
+	},
+	{
+		"index" : 164,
+		"state" : "IN",
+		"gun_law_strength" : "29",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 15.3
+	},
+	{
+		"index" : 165,
+		"state" : "IA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 9
+	},
+	{
+		"index" : 166,
+		"state" : "KS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 16
+	},
+	{
+		"index" : 167,
+		"state" : "KY",
+		"gun_law_strength" : "43",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 16.2
+	},
+	{
+		"index" : 168,
+		"state" : "LA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 21.7
+	},
+	{
+		"index" : 169,
+		"state" : "ME",
+		"gun_law_strength" : "27",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 11.7
+	},
+	{
+		"index" : 170,
+		"state" : "MD",
+		"gun_law_strength" : "7",
+		"grade" : "A-",
+		"year" : 2017,
+		"rate" : 12.3
+	},
+	{
+		"index" : 171,
+		"state" : "MA",
+		"gun_law_strength" : "6",
+		"grade" : "A-",
+		"year" : 2017,
+		"rate" : 3.7
+	},
+	{
+		"index" : 172,
+		"state" : "MI",
+		"gun_law_strength" : "16",
+		"grade" : "C+",
+		"year" : 2017,
+		"rate" : 11.3
+	},
+	{
+		"index" : 173,
+		"state" : "MN",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2017,
+		"rate" : 8.2
+	},
+	{
+		"index" : 174,
+		"state" : "MS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 21.5
+	},
+	{
+		"index" : 175,
+		"state" : "MO",
+		"gun_law_strength" : "47",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 21.5
+	},
+	{
+		"index" : 176,
+		"state" : "MT",
+		"gun_law_strength" : "40",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 22.5
+	},
+	{
+		"index" : 177,
+		"state" : "NE",
+		"gun_law_strength" : "20",
+		"grade" : "C",
+		"year" : 2017,
+		"rate" : 8.3
+	},
+	{
+		"index" : 178,
+		"state" : "NV",
+		"gun_law_strength" : "17",
+		"grade" : "C+",
+		"year" : 2017,
+		"rate" : 16.7
+	},
+	{
+		"index" : 179,
+		"state" : "NH",
+		"gun_law_strength" : "26",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 10.4
+	},
+	{
+		"index" : 180,
+		"state" : "NJ",
+		"gun_law_strength" : "2",
+		"grade" : "A",
+		"year" : 2017,
+		"rate" : 5.3
+	},
+	{
+		"index" : 181,
+		"state" : "NM",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2017,
+		"rate" : 18.5
+	},
+	{
+		"index" : 182,
+		"state" : "NY",
+		"gun_law_strength" : "4",
+		"grade" : "A-",
+		"year" : 2017,
+		"rate" : 3.7
+	},
+	{
+		"index" : 183,
+		"state" : "NC",
+		"gun_law_strength" : "21",
+		"grade" : "C",
+		"year" : 2017,
+		"rate" : 13.7
+	},
+	{
+		"index" : 184,
+		"state" : "ND",
+		"gun_law_strength" : "37",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 13.2
+	},
+	{
+		"index" : 185,
+		"state" : "OH",
+		"gun_law_strength" : "25",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 13.7
+	},
+	{
+		"index" : 186,
+		"state" : "OK",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 17.2
+	},
+	{
+		"index" : 187,
+		"state" : "OR",
+		"gun_law_strength" : "11",
+		"grade" : "B+",
+		"year" : 2017,
+		"rate" : 12.1
+	},
+	{
+		"index" : 188,
+		"state" : "PA",
+		"gun_law_strength" : "15",
+		"grade" : "B-",
+		"year" : 2017,
+		"rate" : 12.5
+	},
+	{
+		"index" : 189,
+		"state" : "RI",
+		"gun_law_strength" : "9",
+		"grade" : "B+",
+		"year" : 2017,
+		"rate" : 3.9
+	},
+	{
+		"index" : 190,
+		"state" : "SC",
+		"gun_law_strength" : "28",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 17.7
+	},
+	{
+		"index" : 191,
+		"state" : "SD",
+		"gun_law_strength" : "44",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 11.9
+	},
+	{
+		"index" : 192,
+		"state" : "TN",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 18.4
+	},
+	{
+		"index" : 193,
+		"state" : "TX",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 12.4
+	},
+	{
+		"index" : 194,
+		"state" : "UT",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 14
+	},
+	{
+		"index" : 195,
+		"state" : "VT",
+		"gun_law_strength" : "22",
+		"grade" : "C-",
+		"year" : 2017,
+		"rate" : 11.7
+	},
+	{
+		"index" : 196,
+		"state" : "VA",
+		"gun_law_strength" : "12",
+		"grade" : "B",
+		"year" : 2017,
+		"rate" : 11.9
+	},
+	{
+		"index" : 197,
+		"state" : "WA",
+		"gun_law_strength" : "10",
+		"grade" : "B+",
+		"year" : 2017,
+		"rate" : 11.1
+	},
+	{
+		"index" : 198,
+		"state" : "WV",
+		"gun_law_strength" : "36",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 18.6
+	},
+	{
+		"index" : 199,
+		"state" : "WI",
+		"gun_law_strength" : "24",
+		"grade" : "D+",
+		"year" : 2017,
+		"rate" : 10.6
+	},
+	{
+		"index" : 200,
+		"state" : "WY",
+		"gun_law_strength" : "49",
+		"grade" : "F",
+		"year" : 2017,
+		"rate" : 18.8
+	},
+	{
+		"index" : 201,
+		"state" : "AL",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 21.5
+	},
+	{
+		"index" : 202,
+		"state" : "AK",
+		"gun_law_strength" : "41",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 23.3
+	},
+	{
+		"index" : 203,
+		"state" : "AZ",
+		"gun_law_strength" : "42",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 15.2
+	},
+	{
+		"index" : 204,
+		"state" : "AR",
+		"gun_law_strength" : "50",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 17.8
+	},
+	{
+		"index" : 205,
+		"state" : "CA",
+		"gun_law_strength" : "1",
+		"grade" : "A",
+		"year" : 2016,
+		"rate" : 7.9
+	},
+	{
+		"index" : 206,
+		"state" : "CO",
+		"gun_law_strength" : "14",
+		"grade" : "B",
+		"year" : 2016,
+		"rate" : 14.3
+	},
+	{
+		"index" : 207,
+		"state" : "CT",
+		"gun_law_strength" : "3",
+		"grade" : "A-",
+		"year" : 2016,
+		"rate" : 4.6
+	},
+	{
+		"index" : 208,
+		"state" : "DE",
+		"gun_law_strength" : "13",
+		"grade" : "B",
+		"year" : 2016,
+		"rate" : 11
+	},
+	{
+		"index" : 209,
+		"state" : "FL",
+		"gun_law_strength" : "23",
+		"grade" : "C-",
+		"year" : 2016,
+		"rate" : 12.6
+	},
+	{
+		"index" : 210,
+		"state" : "GA",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 15
+	},
+	{
+		"index" : 211,
+		"state" : "HI",
+		"gun_law_strength" : "5",
+		"grade" : "A-",
+		"year" : 2016,
+		"rate" : 4.5
+	},
+	{
+		"index" : 212,
+		"state" : "ID",
+		"gun_law_strength" : "48",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 14.6
+	},
+	{
+		"index" : 213,
+		"state" : "IL",
+		"gun_law_strength" : "8",
+		"grade" : "A-",
+		"year" : 2016,
+		"rate" : 11.7
+	},
+	{
+		"index" : 214,
+		"state" : "IN",
+		"gun_law_strength" : "29",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 15
+	},
+	{
+		"index" : 215,
+		"state" : "IA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 9.2
+	},
+	{
+		"index" : 216,
+		"state" : "KS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 13.4
+	},
+	{
+		"index" : 217,
+		"state" : "KY",
+		"gun_law_strength" : "43",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 17.5
+	},
+	{
+		"index" : 218,
+		"state" : "LA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 21.3
+	},
+	{
+		"index" : 219,
+		"state" : "ME",
+		"gun_law_strength" : "27",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 8.3
+	},
+	{
+		"index" : 220,
+		"state" : "MD",
+		"gun_law_strength" : "7",
+		"grade" : "A-",
+		"year" : 2016,
+		"rate" : 11.9
+	},
+	{
+		"index" : 221,
+		"state" : "MA",
+		"gun_law_strength" : "6",
+		"grade" : "A-",
+		"year" : 2016,
+		"rate" : 3.4
+	},
+	{
+		"index" : 222,
+		"state" : "MI",
+		"gun_law_strength" : "16",
+		"grade" : "C+",
+		"year" : 2016,
+		"rate" : 12.3
+	},
+	{
+		"index" : 223,
+		"state" : "MN",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2016,
+		"rate" : 7.6
+	},
+	{
+		"index" : 224,
+		"state" : "MS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 19.9
+	},
+	{
+		"index" : 225,
+		"state" : "MO",
+		"gun_law_strength" : "47",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 19
+	},
+	{
+		"index" : 226,
+		"state" : "MT",
+		"gun_law_strength" : "40",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 18.9
+	},
+	{
+		"index" : 227,
+		"state" : "NE",
+		"gun_law_strength" : "20",
+		"grade" : "C",
+		"year" : 2016,
+		"rate" : 9.1
+	},
+	{
+		"index" : 228,
+		"state" : "NV",
+		"gun_law_strength" : "17",
+		"grade" : "C+",
+		"year" : 2016,
+		"rate" : 16.8
+	},
+	{
+		"index" : 229,
+		"state" : "NH",
+		"gun_law_strength" : "26",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 9.3
+	},
+	{
+		"index" : 230,
+		"state" : "NJ",
+		"gun_law_strength" : "2",
+		"grade" : "A",
+		"year" : 2016,
+		"rate" : 5.5
+	},
+	{
+		"index" : 231,
+		"state" : "NM",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2016,
+		"rate" : 18.1
+	},
+	{
+		"index" : 232,
+		"state" : "NY",
+		"gun_law_strength" : "4",
+		"grade" : "A-",
+		"year" : 2016,
+		"rate" : 4.4
+	},
+	{
+		"index" : 233,
+		"state" : "NC",
+		"gun_law_strength" : "21",
+		"grade" : "C",
+		"year" : 2016,
+		"rate" : 13.7
+	},
+	{
+		"index" : 234,
+		"state" : "ND",
+		"gun_law_strength" : "37",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 11.9
+	},
+	{
+		"index" : 235,
+		"state" : "OH",
+		"gun_law_strength" : "25",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 12.9
+	},
+	{
+		"index" : 236,
+		"state" : "OK",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 19.6
+	},
+	{
+		"index" : 237,
+		"state" : "OR",
+		"gun_law_strength" : "11",
+		"grade" : "B+",
+		"year" : 2016,
+		"rate" : 11.9
+	},
+	{
+		"index" : 238,
+		"state" : "PA",
+		"gun_law_strength" : "15",
+		"grade" : "B-",
+		"year" : 2016,
+		"rate" : 12
+	},
+	{
+		"index" : 239,
+		"state" : "RI",
+		"gun_law_strength" : "9",
+		"grade" : "B+",
+		"year" : 2016,
+		"rate" : 4.1
+	},
+	{
+		"index" : 240,
+		"state" : "SC",
+		"gun_law_strength" : "28",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 17.7
+	},
+	{
+		"index" : 241,
+		"state" : "SD",
+		"gun_law_strength" : "44",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 13.4
+	},
+	{
+		"index" : 242,
+		"state" : "TN",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 17.1
+	},
+	{
+		"index" : 243,
+		"state" : "TX",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 12.1
+	},
+	{
+		"index" : 244,
+		"state" : "UT",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 12.9
+	},
+	{
+		"index" : 245,
+		"state" : "VT",
+		"gun_law_strength" : "22",
+		"grade" : "C-",
+		"year" : 2016,
+		"rate" : 11.1
+	},
+	{
+		"index" : 246,
+		"state" : "VA",
+		"gun_law_strength" : "12",
+		"grade" : "B",
+		"year" : 2016,
+		"rate" : 12.1
+	},
+	{
+		"index" : 247,
+		"state" : "WA",
+		"gun_law_strength" : "10",
+		"grade" : "B+",
+		"year" : 2016,
+		"rate" : 9
+	},
+	{
+		"index" : 248,
+		"state" : "WV",
+		"gun_law_strength" : "36",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 17.5
+	},
+	{
+		"index" : 249,
+		"state" : "WI",
+		"gun_law_strength" : "24",
+		"grade" : "D+",
+		"year" : 2016,
+		"rate" : 11.4
+	},
+	{
+		"index" : 250,
+		"state" : "WY",
+		"gun_law_strength" : "49",
+		"grade" : "F",
+		"year" : 2016,
+		"rate" : 17.4
+	},
+	{
+		"index" : 251,
+		"state" : "AL",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 19.6
+	},
+	{
+		"index" : 252,
+		"state" : "AK",
+		"gun_law_strength" : "41",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 23.4
+	},
+	{
+		"index" : 253,
+		"state" : "AZ",
+		"gun_law_strength" : "42",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 13.8
+	},
+	{
+		"index" : 254,
+		"state" : "AR",
+		"gun_law_strength" : "50",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 16.9
+	},
+	{
+		"index" : 255,
+		"state" : "CA",
+		"gun_law_strength" : "1",
+		"grade" : "A",
+		"year" : 2015,
+		"rate" : 7.7
+	},
+	{
+		"index" : 256,
+		"state" : "CO",
+		"gun_law_strength" : "14",
+		"grade" : "B",
+		"year" : 2015,
+		"rate" : 12.6
+	},
+	{
+		"index" : 257,
+		"state" : "CT",
+		"gun_law_strength" : "3",
+		"grade" : "A-",
+		"year" : 2015,
+		"rate" : 5.3
+	},
+	{
+		"index" : 258,
+		"state" : "DE",
+		"gun_law_strength" : "13",
+		"grade" : "B",
+		"year" : 2015,
+		"rate" : 12.1
+	},
+	{
+		"index" : 259,
+		"state" : "FL",
+		"gun_law_strength" : "23",
+		"grade" : "C-",
+		"year" : 2015,
+		"rate" : 12
+	},
+	{
+		"index" : 260,
+		"state" : "GA",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 14.1
+	},
+	{
+		"index" : 261,
+		"state" : "HI",
+		"gun_law_strength" : "5",
+		"grade" : "A-",
+		"year" : 2015,
+		"rate" : 3.6
+	},
+	{
+		"index" : 262,
+		"state" : "ID",
+		"gun_law_strength" : "48",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 14.7
+	},
+	{
+		"index" : 263,
+		"state" : "IL",
+		"gun_law_strength" : "8",
+		"grade" : "A-",
+		"year" : 2015,
+		"rate" : 9.5
+	},
+	{
+		"index" : 264,
+		"state" : "IN",
+		"gun_law_strength" : "29",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 12.7
+	},
+	{
+		"index" : 265,
+		"state" : "IA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 7.8
+	},
+	{
+		"index" : 266,
+		"state" : "KS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 11.4
+	},
+	{
+		"index" : 267,
+		"state" : "KY",
+		"gun_law_strength" : "43",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 15.2
+	},
+	{
+		"index" : 268,
+		"state" : "LA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 20.4
+	},
+	{
+		"index" : 269,
+		"state" : "ME",
+		"gun_law_strength" : "27",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 9.8
+	},
+	{
+		"index" : 270,
+		"state" : "MD",
+		"gun_law_strength" : "7",
+		"grade" : "A-",
+		"year" : 2015,
+		"rate" : 11.9
+	},
+	{
+		"index" : 271,
+		"state" : "MA",
+		"gun_law_strength" : "6",
+		"grade" : "A-",
+		"year" : 2015,
+		"rate" : 3
+	},
+	{
+		"index" : 272,
+		"state" : "MI",
+		"gun_law_strength" : "16",
+		"grade" : "C+",
+		"year" : 2015,
+		"rate" : 11.7
+	},
+	{
+		"index" : 273,
+		"state" : "MN",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2015,
+		"rate" : 7.4
+	},
+	{
+		"index" : 274,
+		"state" : "MS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 19.6
+	},
+	{
+		"index" : 275,
+		"state" : "MO",
+		"gun_law_strength" : "47",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 18.1
+	},
+	{
+		"index" : 276,
+		"state" : "MT",
+		"gun_law_strength" : "40",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 19.2
+	},
+	{
+		"index" : 277,
+		"state" : "NE",
+		"gun_law_strength" : "20",
+		"grade" : "C",
+		"year" : 2015,
+		"rate" : 8.9
+	},
+	{
+		"index" : 278,
+		"state" : "NV",
+		"gun_law_strength" : "17",
+		"grade" : "C+",
+		"year" : 2015,
+		"rate" : 14.9
+	},
+	{
+		"index" : 279,
+		"state" : "NH",
+		"gun_law_strength" : "26",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 8.9
+	},
+	{
+		"index" : 280,
+		"state" : "NJ",
+		"gun_law_strength" : "2",
+		"grade" : "A",
+		"year" : 2015,
+		"rate" : 5.4
+	},
+	{
+		"index" : 281,
+		"state" : "NM",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2015,
+		"rate" : 18.6
+	},
+	{
+		"index" : 282,
+		"state" : "NY",
+		"gun_law_strength" : "4",
+		"grade" : "A-",
+		"year" : 2015,
+		"rate" : 4.2
+	},
+	{
+		"index" : 283,
+		"state" : "NC",
+		"gun_law_strength" : "21",
+		"grade" : "C",
+		"year" : 2015,
+		"rate" : 12.5
+	},
+	{
+		"index" : 284,
+		"state" : "ND",
+		"gun_law_strength" : "37",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 12.8
+	},
+	{
+		"index" : 285,
+		"state" : "OH",
+		"gun_law_strength" : "25",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 11.9
+	},
+	{
+		"index" : 286,
+		"state" : "OK",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 18
+	},
+	{
+		"index" : 287,
+		"state" : "OR",
+		"gun_law_strength" : "11",
+		"grade" : "B+",
+		"year" : 2015,
+		"rate" : 11.4
+	},
+	{
+		"index" : 288,
+		"state" : "PA",
+		"gun_law_strength" : "15",
+		"grade" : "B-",
+		"year" : 2015,
+		"rate" : 11.4
+	},
+	{
+		"index" : 289,
+		"state" : "RI",
+		"gun_law_strength" : "9",
+		"grade" : "B+",
+		"year" : 2015,
+		"rate" : 4.7
+	},
+	{
+		"index" : 290,
+		"state" : "SC",
+		"gun_law_strength" : "28",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 17.3
+	},
+	{
+		"index" : 291,
+		"state" : "SD",
+		"gun_law_strength" : "44",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 11.1
+	},
+	{
+		"index" : 292,
+		"state" : "TN",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 16
+	},
+	{
+		"index" : 293,
+		"state" : "TX",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 11.7
+	},
+	{
+		"index" : 294,
+		"state" : "UT",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 12.8
+	},
+	{
+		"index" : 295,
+		"state" : "VT",
+		"gun_law_strength" : "22",
+		"grade" : "C-",
+		"year" : 2015,
+		"rate" : 9.6
+	},
+	{
+		"index" : 296,
+		"state" : "VA",
+		"gun_law_strength" : "12",
+		"grade" : "B",
+		"year" : 2015,
+		"rate" : 10.9
+	},
+	{
+		"index" : 297,
+		"state" : "WA",
+		"gun_law_strength" : "10",
+		"grade" : "B+",
+		"year" : 2015,
+		"rate" : 9.8
+	},
+	{
+		"index" : 298,
+		"state" : "WV",
+		"gun_law_strength" : "36",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 14
+	},
+	{
+		"index" : 299,
+		"state" : "WI",
+		"gun_law_strength" : "24",
+		"grade" : "D+",
+		"year" : 2015,
+		"rate" : 10.4
+	},
+	{
+		"index" : 300,
+		"state" : "WY",
+		"gun_law_strength" : "49",
+		"grade" : "F",
+		"year" : 2015,
+		"rate" : 19.6
+	},
+	{
+		"index" : 301,
+		"state" : "AL",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 16.9
+	},
+	{
+		"index" : 302,
+		"state" : "AK",
+		"gun_law_strength" : "41",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 19.2
+	},
+	{
+		"index" : 303,
+		"state" : "AZ",
+		"gun_law_strength" : "42",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 13.5
+	},
+	{
+		"index" : 304,
+		"state" : "AR",
+		"gun_law_strength" : "50",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 16.6
+	},
+	{
+		"index" : 305,
+		"state" : "CA",
+		"gun_law_strength" : "1",
+		"grade" : "A",
+		"year" : 2014,
+		"rate" : 7.4
+	},
+	{
+		"index" : 306,
+		"state" : "CO",
+		"gun_law_strength" : "14",
+		"grade" : "B",
+		"year" : 2014,
+		"rate" : 12.2
+	},
+	{
+		"index" : 307,
+		"state" : "CT",
+		"gun_law_strength" : "3",
+		"grade" : "A-",
+		"year" : 2014,
+		"rate" : 5
+	},
+	{
+		"index" : 308,
+		"state" : "DE",
+		"gun_law_strength" : "13",
+		"grade" : "B",
+		"year" : 2014,
+		"rate" : 11.1
+	},
+	{
+		"index" : 309,
+		"state" : "FL",
+		"gun_law_strength" : "23",
+		"grade" : "C-",
+		"year" : 2014,
+		"rate" : 11.5
+	},
+	{
+		"index" : 310,
+		"state" : "GA",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 13.7
+	},
+	{
+		"index" : 311,
+		"state" : "HI",
+		"gun_law_strength" : "5",
+		"grade" : "A-",
+		"year" : 2014,
+		"rate" : 2.6
+	},
+	{
+		"index" : 312,
+		"state" : "ID",
+		"gun_law_strength" : "48",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 13.2
+	},
+	{
+		"index" : 313,
+		"state" : "IL",
+		"gun_law_strength" : "8",
+		"grade" : "A-",
+		"year" : 2014,
+		"rate" : 9
+	},
+	{
+		"index" : 314,
+		"state" : "IN",
+		"gun_law_strength" : "29",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 12.4
+	},
+	{
+		"index" : 315,
+		"state" : "IA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 7.5
+	},
+	{
+		"index" : 316,
+		"state" : "KS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 11.3
+	},
+	{
+		"index" : 317,
+		"state" : "KY",
+		"gun_law_strength" : "43",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 13.9
+	},
+	{
+		"index" : 318,
+		"state" : "LA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 19
+	},
+	{
+		"index" : 319,
+		"state" : "ME",
+		"gun_law_strength" : "27",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 9.4
+	},
+	{
+		"index" : 320,
+		"state" : "MD",
+		"gun_law_strength" : "7",
+		"grade" : "A-",
+		"year" : 2014,
+		"rate" : 9
+	},
+	{
+		"index" : 321,
+		"state" : "MA",
+		"gun_law_strength" : "6",
+		"grade" : "A-",
+		"year" : 2014,
+		"rate" : 3.2
+	},
+	{
+		"index" : 322,
+		"state" : "MI",
+		"gun_law_strength" : "16",
+		"grade" : "C+",
+		"year" : 2014,
+		"rate" : 11.1
+	},
+	{
+		"index" : 323,
+		"state" : "MN",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2014,
+		"rate" : 6.6
+	},
+	{
+		"index" : 324,
+		"state" : "MS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 18.3
+	},
+	{
+		"index" : 325,
+		"state" : "MO",
+		"gun_law_strength" : "47",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 15.3
+	},
+	{
+		"index" : 326,
+		"state" : "MT",
+		"gun_law_strength" : "40",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 16.1
+	},
+	{
+		"index" : 327,
+		"state" : "NE",
+		"gun_law_strength" : "20",
+		"grade" : "C",
+		"year" : 2014,
+		"rate" : 9.5
+	},
+	{
+		"index" : 328,
+		"state" : "NV",
+		"gun_law_strength" : "17",
+		"grade" : "C+",
+		"year" : 2014,
+		"rate" : 14.8
+	},
+	{
+		"index" : 329,
+		"state" : "MS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 16
+	},
+	{
+		"index" : 330,
+		"state" : "MO",
+		"gun_law_strength" : "47",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 12.9
+	},
+	{
+		"index" : 331,
+		"state" : "MT",
+		"gun_law_strength" : "40",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 16.9
+	},
+	{
+		"index" : 332,
+		"state" : "NE",
+		"gun_law_strength" : "20",
+		"grade" : "C",
+		"year" : 2005,
+		"rate" : 7.7
+	},
+	{
+		"index" : 333,
+		"state" : "NV",
+		"gun_law_strength" : "17",
+		"grade" : "C+",
+		"year" : 2005,
+		"rate" : 16.1
+	},
+	{
+		"index" : 334,
+		"state" : "NH",
+		"gun_law_strength" : "26",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 6.6
+	},
+	{
+		"index" : 335,
+		"state" : "NJ",
+		"gun_law_strength" : "2",
+		"grade" : "A",
+		"year" : 2005,
+		"rate" : 5.2
+	},
+	{
+		"index" : 336,
+		"state" : "NM",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2005,
+		"rate" : 13.9
+	},
+	{
+		"index" : 337,
+		"state" : "NY",
+		"gun_law_strength" : "4",
+		"grade" : "A-",
+		"year" : 2005,
+		"rate" : 5.3
+	},
+	{
+		"index" : 338,
+		"state" : "NC",
+		"gun_law_strength" : "21",
+		"grade" : "C",
+		"year" : 2005,
+		"rate" : 12.8
+	},
+	{
+		"index" : 339,
+		"state" : "ND",
+		"gun_law_strength" : "37",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 8.8
+	},
+	{
+		"index" : 340,
+		"state" : "OH",
+		"gun_law_strength" : "25",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 9.6
+	},
+	{
+		"index" : 341,
+		"state" : "OK",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 13.2
+	},
+	{
+		"index" : 342,
+		"state" : "OR",
+		"gun_law_strength" : "11",
+		"grade" : "B+",
+		"year" : 2005,
+		"rate" : 10.7
+	},
+	{
+		"index" : 343,
+		"state" : "PA",
+		"gun_law_strength" : "15",
+		"grade" : "B-",
+		"year" : 2005,
+		"rate" : 10.8
+	},
+	{
+		"index" : 344,
+		"state" : "RI",
+		"gun_law_strength" : "9",
+		"grade" : "B+",
+		"year" : 2005,
+		"rate" : 3.6
+	},
+	{
+		"index" : 345,
+		"state" : "SC",
+		"gun_law_strength" : "28",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 13.8
+	},
+	{
+		"index" : 346,
+		"state" : "SD",
+		"gun_law_strength" : "44",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 10.2
+	},
+	{
+		"index" : 347,
+		"state" : "TN",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 16
+	},
+	{
+		"index" : 348,
+		"state" : "TX",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 11.1
+	},
+	{
+		"index" : 349,
+		"state" : "UT",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 10.1
+	},
+	{
+		"index" : 350,
+		"state" : "VT",
+		"gun_law_strength" : "22",
+		"grade" : "C-",
+		"year" : 2005,
+		"rate" : 6.8
+	},
+	{
+		"index" : 351,
+		"state" : "VA",
+		"gun_law_strength" : "12",
+		"grade" : "B",
+		"year" : 2005,
+		"rate" : 11.5
+	},
+	{
+		"index" : 352,
+		"state" : "WA",
+		"gun_law_strength" : "10",
+		"grade" : "B+",
+		"year" : 2005,
+		"rate" : 8.8
+	},
+	{
+		"index" : 353,
+		"state" : "WV",
+		"gun_law_strength" : "36",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 13.8
+	},
+	{
+		"index" : 354,
+		"state" : "WI",
+		"gun_law_strength" : "24",
+		"grade" : "D+",
+		"year" : 2005,
+		"rate" : 8.5
+	},
+	{
+		"index" : 355,
+		"state" : "WY",
+		"gun_law_strength" : "49",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 13.4
+	},
+	{
+		"index" : 356,
+		"state" : "NH",
+		"gun_law_strength" : "26",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 8.7
+	},
+	{
+		"index" : 357,
+		"state" : "NJ",
+		"gun_law_strength" : "2",
+		"grade" : "A",
+		"year" : 2014,
+		"rate" : 5.3
+	},
+	{
+		"index" : 358,
+		"state" : "NM",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2014,
+		"rate" : 16
+	},
+	{
+		"index" : 359,
+		"state" : "NY",
+		"gun_law_strength" : "4",
+		"grade" : "A-",
+		"year" : 2014,
+		"rate" : 4.2
+	},
+	{
+		"index" : 360,
+		"state" : "NC",
+		"gun_law_strength" : "21",
+		"grade" : "C",
+		"year" : 2014,
+		"rate" : 11.8
+	},
+	{
+		"index" : 361,
+		"state" : "ND",
+		"gun_law_strength" : "37",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 12.3
+	},
+	{
+		"index" : 362,
+		"state" : "OH",
+		"gun_law_strength" : "25",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 10.3
+	},
+	{
+		"index" : 363,
+		"state" : "OK",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 15.7
+	},
+	{
+		"index" : 364,
+		"state" : "OR",
+		"gun_law_strength" : "11",
+		"grade" : "B+",
+		"year" : 2014,
+		"rate" : 11.7
+	},
+	{
+		"index" : 365,
+		"state" : "PA",
+		"gun_law_strength" : "15",
+		"grade" : "B-",
+		"year" : 2014,
+		"rate" : 10.5
+	},
+	{
+		"index" : 366,
+		"state" : "RI",
+		"gun_law_strength" : "9",
+		"grade" : "B+",
+		"year" : 2014,
+		"rate" : 3
+	},
+	{
+		"index" : 367,
+		"state" : "SC",
+		"gun_law_strength" : "28",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 15.5
+	},
+	{
+		"index" : 368,
+		"state" : "SD",
+		"gun_law_strength" : "44",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 10.3
+	},
+	{
+		"index" : 369,
+		"state" : "TN",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 15.1
+	},
+	{
+		"index" : 370,
+		"state" : "TX",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 10.7
+	},
+	{
+		"index" : 371,
+		"state" : "UT",
+		"gun_law_strength" : "30",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 12.3
+	},
+	{
+		"index" : 372,
+		"state" : "VT",
+		"gun_law_strength" : "22",
+		"grade" : "C-",
+		"year" : 2014,
+		"rate" : 10.3
+	},
+	{
+		"index" : 373,
+		"state" : "VA",
+		"gun_law_strength" : "12",
+		"grade" : "B",
+		"year" : 2014,
+		"rate" : 10.3
+	},
+	{
+		"index" : 374,
+		"state" : "WA",
+		"gun_law_strength" : "10",
+		"grade" : "B+",
+		"year" : 2014,
+		"rate" : 9.7
+	},
+	{
+		"index" : 375,
+		"state" : "WV",
+		"gun_law_strength" : "36",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 14.6
+	},
+	{
+		"index" : 376,
+		"state" : "WI",
+		"gun_law_strength" : "24",
+		"grade" : "D+",
+		"year" : 2014,
+		"rate" : 8.2
+	},
+	{
+		"index" : 377,
+		"state" : "WY",
+		"gun_law_strength" : "49",
+		"grade" : "F",
+		"year" : 2014,
+		"rate" : 16.2
+	},
+	{
+		"index" : 378,
+		"state" : "AL",
+		"gun_law_strength" : "38",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 16
+	},
+	{
+		"index" : 379,
+		"state" : "AK",
+		"gun_law_strength" : "41",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 17.5
+	},
+	{
+		"index" : 380,
+		"state" : "AZ",
+		"gun_law_strength" : "42",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 16.1
+	},
+	{
+		"index" : 381,
+		"state" : "AR",
+		"gun_law_strength" : "50",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 15.7
+	},
+	{
+		"index" : 382,
+		"state" : "CA",
+		"gun_law_strength" : "1",
+		"grade" : "A",
+		"year" : 2005,
+		"rate" : 9.5
+	},
+	{
+		"index" : 383,
+		"state" : "CO",
+		"gun_law_strength" : "14",
+		"grade" : "B",
+		"year" : 2005,
+		"rate" : 11.6
+	},
+	{
+		"index" : 384,
+		"state" : "CT",
+		"gun_law_strength" : "3",
+		"grade" : "A-",
+		"year" : 2005,
+		"rate" : 5.3
+	},
+	{
+		"index" : 385,
+		"state" : "DE",
+		"gun_law_strength" : "13",
+		"grade" : "B",
+		"year" : 2005,
+		"rate" : 8.8
+	},
+	{
+		"index" : 386,
+		"state" : "FL",
+		"gun_law_strength" : "23",
+		"grade" : "C-",
+		"year" : 2005,
+		"rate" : 10
+	},
+	{
+		"index" : 387,
+		"state" : "GA",
+		"gun_law_strength" : "34",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 12.1
+	},
+	{
+		"index" : 388,
+		"state" : "HI",
+		"gun_law_strength" : "5",
+		"grade" : "A-",
+		"year" : 2005,
+		"rate" : 2.1
+	},
+	{
+		"index" : 389,
+		"state" : "ID",
+		"gun_law_strength" : "48",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 14.1
+	},
+	{
+		"index" : 390,
+		"state" : "IL",
+		"gun_law_strength" : "8",
+		"grade" : "A-",
+		"year" : 2005,
+		"rate" : 8
+	},
+	{
+		"index" : 391,
+		"state" : "IN",
+		"gun_law_strength" : "29",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 11.2
+	},
+	{
+		"index" : 392,
+		"state" : "IA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 6.7
+	},
+	{
+		"index" : 393,
+		"state" : "KS",
+		"gun_law_strength" : "45",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 9.3
+	},
+	{
+		"index" : 394,
+		"state" : "KY",
+		"gun_law_strength" : "43",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 13
+	},
+	{
+		"index" : 395,
+		"state" : "LA",
+		"gun_law_strength" : "32",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 18.5
+	},
+	{
+		"index" : 396,
+		"state" : "ME",
+		"gun_law_strength" : "27",
+		"grade" : "F",
+		"year" : 2005,
+		"rate" : 7.8
+	},
+	{
+		"index" : 397,
+		"state" : "MD",
+		"gun_law_strength" : "7",
+		"grade" : "A-",
+		"year" : 2005,
+		"rate" : 11.9
+	},
+	{
+		"index" : 398,
+		"state" : "MA",
+		"gun_law_strength" : "6",
+		"grade" : "A-",
+		"year" : 2005,
+		"rate" : 3.4
+	},
+	{
+		"index" : 399,
+		"state" : "MI",
+		"gun_law_strength" : "16",
+		"grade" : "C+",
+		"year" : 2005,
+		"rate" : 10.8
+	},
+	{
+		"index" : 400,
+		"state" : "MN",
+		"gun_law_strength" : "18",
+		"grade" : "C+",
+		"year" : 2005,
+		"rate" : 7
+	}
+]
